@@ -1,0 +1,393 @@
+:root {
+  --main-bg-color: #f8f6f6;
+  --searchButton-bg-color:#C32F10;
+  --gray-color:rgb(2, 207, 207);
+  --main-banner-color-overlay:rgba(112, 85, 9, 0.3);
+  --main-text-color:#E7E7E7;
+}
+body, html {
+    height: 100%;
+  }
+
+body {
+  background-color:var(--main-bg-color);
+}
+
+
+.bg {
+    /* The image used */
+    background-image: url("food_map.jpg");
+
+    /* Full height */
+    height: 70%;
+  
+    /* Center and scale the image nicely */
+    position: relative;
+
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center;
+
+    /* Reduce the size of the image */
+    /* background-size: 100% 100%; */
+  }
+
+  
+
+
+  .layer {
+    background-color: var(--main-banner-color-overlay);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+ .btn-link{
+  color: white;
+  font-weight: 400;
+  font-family: "Roboto";
+  font-size: 150%; 
+  text-decoration: none !important;
+} 
+
+.login_form {
+    position: absolute;
+    left: 86%;
+    top: 2%;
+  } 
+
+/* A link that is focused on */
+.btn-link:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+/* A link that has not been visited */
+.btn-link:link {
+    text-decoration: none;
+}
+
+/* A link that has been visited */
+.btn-link:visited {
+    text-decoration: none ;
+}
+
+/* A link that is hovered on */
+.btn-link:hover {
+    text-decoration: none ;
+    color:var(--gray-color);
+}
+
+/* A link that is selected */
+.btn-link:active {
+    text-decoration: none ;
+    outline: none !important;
+}
+
+.content_wrapper{
+  position:absolute;
+  top:15%;
+
+}
+
+.website_name{
+  color: white;
+  font-weight: 400;
+  font-family: "Lucida Calligraphy";
+  font-size: 500%; 
+  line-height: 1;
+}
+
+.sentence{
+  position: absolute;
+  left: 35%;
+  margin-left: -50px;
+  top: 42%;
+}
+
+.first_sentence{
+  color:var(--main-text-color);
+  font-weight: 400;
+  font-family: "Roboto";
+  font-size: 300%; 
+}
+
+.container h1{
+  /* font-size:300; */
+  font-size:1.8rem;
+}
+
+.collection{
+  /* font-size:300; */
+  position: relative;
+  font-size:1.8rem;
+  top: 16px;
+}
+
+.second_sentence{
+  color: black;
+  font-weight: 450;
+  font-family: "Roboto";
+  font-size: 125%; 
+}
+
+.badge badge-pill badge-light {
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  border-radius: 100px;
+}
+
+.tag
+{
+  font-family: arial;
+  font-size: 100%;
+  width: 160px;
+  height: 40px;
+  border-radius: 1.2rem;
+  line-height: 25px;
+  text-align: center;
+  margin-left:10px;
+  /* display: block; */
+  text-decoration: none;
+  color: black;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  transition: .3s;
+  -webkit-box-shadow: 5px 3px 7px 1px rgba(224,224,224,1);
+  -moz-box-shadow: 5px 3px 7px 1px rgba(224,224,224,1);
+  box-shadow: 5px 3px 7px 1px rgba(224,224,224,1);
+  background-color: white;
+}
+
+/* A button tag that is focused on */
+.tag:focus {
+  outline: 0;
+  box-shadow: none;
+  background-color: orange;
+}
+
+
+
+/* A button tag that is hovered on */
+/* .btn-link:hover {
+  text-decoration: none ;
+  color: gray;
+} */
+/*wrapper of the search bar*/
+/*search bar items class */
+
+.search_container {
+  font-weight: 300;
+  font-family: Okra, Helvetica, sans-serif;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1.6rem;
+
+  
+}
+.search_bar {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 4rem;
+  box-shadow: rgba(28, 28, 28, 0.08) 0px 2px 8px;
+  background: rgb(255, 255, 255);
+  border-radius: 0.8rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(232, 232, 232);
+  border-image: initial;
+  margin:0 auto;
+  width: 50%;
+}
+.search_city {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+  width: 12rem;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  padding: 0px 1rem;
+  
+}
+.search_divider {
+  width: 0rem;
+  height: 2rem;
+  border-width: 0.05rem;
+  border-style: solid;
+  border-color: rgb(207, 207, 207);
+  border-image: initial;
+}
+.search_location_city_container{
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+    -webkit-box-align: center;
+  align-items: center;
+}
+.search_restaurant  {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  padding: 0px 1rem; 
+}
+.submit_search {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+  width: 5rem;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 0 0.8rem 0.8rem 0;
+  border-style: solid;
+  border-color: var(--searchButton-bg-color);
+  border-image: initial;
+  padding: 0px 1rem;
+  background-color:var(--searchButton-bg-color);
+  cursor:pointer;
+  
+}
+.submit_search:hover{
+  background-color: rgb(236, 70, 84);
+}
+
+.search_icon_bar , .search_location_city{
+  width:24px;
+  height:24px;
+  display:flex;
+  text-align:center;
+  
+  
+}
+
+.Icon_material_location_city_Class{
+  fill:var(--gray-color);
+}
+input:active,input:focus {
+  outline: 0;
+}
+input {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark-color(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: textfield;
+  background-color: -internal-light-dark-color(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font-size:18px;
+  padding: 1px 2px;
+  height:4rem;
+  border:none;
+  width:100%;
+  
+}
+
+@media (min-width: 768px) {
+  .multi-item-carousel .carousel-inner .carousel-item {
+    margin-right: inherit;
+  }
+  .multi-item-carousel .carousel-inner .carousel-item.active + .carousel-item,
+  .multi-item-carousel .carousel-inner .carousel-item.active + .carousel-item + .carousel-item {
+    display: block;
+  }
+  .multi-item-carousel .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .multi-item-carousel .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .multi-item-carousel .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .multi-item-carousel .carousel-inner .carousel-item.active + .carousel-item + .carousel-item + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -33.33333333%;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+  .multi-item-carousel .carousel-inner .carousel-item-next,
+  .multi-item-carousel .carousel-inner .carousel-item-prev {
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  .multi-item-carousel .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+  .multi-item-carousel .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .multi-item-carousel .carousel-item-next.carousel-item-left + .carousel-item,
+  .multi-item-carousel .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .multi-item-carousel .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  .multi-item-carousel .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .multi-item-carousel .carousel-item-prev.carousel-item-right + .carousel-item,
+  .multi-item-carousel .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .multi-item-carousel .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    display: block;
+    visibility: visible;
+  }
+}
+
+.list-food{
+position: relative;
+left: 8%;
+top: 5%;
+margin-left: 0px;
+}
+
+/* Carousel images */
+.img-fluid {
+  width: 350px;
+  height: 400px;
+  border-radius: 25px;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+ }
+ 
+ .carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ }
+
+ 
+ .d-md-block {
+  display: table-caption; /* keep the background color wrapped tight */
+  margin: 0px auto 0px auto; /* keep the table centered */
+  font-family: arial;
+  padding:5px;
+  background-color:rgba(0, 0, 0, 0.5);
+  color:#ffffff;
+}
+
