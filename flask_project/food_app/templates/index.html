@@ -1,23 +1,6 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="..\static\styles\style.css">
-  
-  <title>Exotic</title>
-</head>
-
-<body>
-
+{% extends "base.html" %}
   <!-- Background image -->
-
+{% block content %}
   <div class="bg">
     <div class="layer">
     </div>
@@ -53,6 +36,7 @@
           <input type="text" class="search_restaurant_input" placeholder="Search for restaurant name or cuisine ">
         </div>
         <div class="submit_search" onclick="location.href='https://google.com'; ">
+          {{ form.hidden_tag() }}
           <i class="rbbb40-1 MxLSp" color="#FFFFFF" size="16"><svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF"
               width="16" height="16" viewBox="0 0 20 20" aria-labelledby="icon-svg-title-Search icon-svg-desc-Search"
               role="img" class="searchIconBar">
@@ -148,31 +132,7 @@
       </a>
     </div>
   </div>
+  {% endblock content %}
+  {% block  script %}
 
-  
-  
-
-
-  <!--     <div class="input-group md-form form-sm form-2 pl-0">
-      <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-      <div class="input-group-append">
-        <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
-            aria-hidden="true"></i></span>
-      </div>
-    </div> -->
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
-  <script src="../static/js/script.js"></script>
-</body>
-
-</html>
+{% endblock script  %}
