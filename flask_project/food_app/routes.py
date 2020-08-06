@@ -11,4 +11,6 @@ def home():
         #return redirect(url_for('home'))
     return render_template('index.html', title='Home' , form=form)
 
-
+@app.route('/result')
+def result():
+    return render_template('result.html')
