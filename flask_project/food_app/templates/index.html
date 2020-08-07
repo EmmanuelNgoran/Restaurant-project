@@ -71,7 +71,7 @@
   </div>
 
   <div class="container list-food">
-    <div class="carousel slide multi-item-carousel" id="theCarousel">
+    <div class="carousel slide multi-item-carousel" id="theCarousel-1" data-interval="1000">
       <div class="carousel-inner row w-100 mx-auto">
         <div class="carousel-item active col-md-4">
           <img src="../static/images/food.jpg" class="img-fluid mx-auto d-block" alt="food">
@@ -122,17 +122,89 @@
             </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#theCarousel" role="button" data-slide="prev">
+      <a class="carousel-control-prev" href="#theCarousel-1" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#theCarousel" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#theCarousel-1" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
   </div>
+  
+  <div class="container ">
+    <div class="row" style="margin-top:55px;">
+      <h1> Trending exotic restaurants </h1>
+    </div>
+  </div>
+
+  <div class="container list-food">
+    <div class="carousel slide multi-item-carousel" id="theCarousel-2" data-interval="1000">
+      <div class="carousel-inner row w-100 mx-auto">
+        <div class="carousel-item active col-md-4">
+          <img src="../static/images/resto1.jpg" class="img-fluid mx-auto d-block" alt="food">
+            <!-- Carousel caption -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Le Porkodjro</h5>
+              <p>restaurant allemand</p>
+            </div>
+        </div>
+        <div class="carousel-item col-md-4">
+          <img src="../static/images/resto2.jpg" class="img-fluid mx-auto d-block" alt="food">
+            <!-- Carousel caption -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>le burger wow</h5>
+              <p>cuisine americaine</p>
+            </div>  
+        </div>
+        <div class="carousel-item col-md-4">
+          <img src="../static/images/resto3.jpg" class="img-fluid mx-auto d-block" alt="food">
+            <!-- Carousel caption -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>le resto du coeur</h5>
+              <p>restaurant suisse</p>
+            </div>
+        </div>
+        <div class="carousel-item col-md-4">
+          <img src="../static/images/resto4.jpg" class="img-fluid mx-auto d-block" alt="food">
+            <!-- Carousel caption -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>l'opera</h5>
+              <p>restaurant ivoirien</p>
+            </div>
+        </div>
+        <div class="carousel-item col-md-4">
+          <img src="../static/images/resto5.jpg" class="img-fluid mx-auto d-block" alt="food">
+            <!-- Carousel caption -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>chez Akissi</h5>
+              <p>cuisine ghanéenne</p>
+            </div>
+        </div>
+        <div class="carousel-item col-md-4">
+          <img src="../static/images/resto6.jpg" class="img-fluid mx-auto d-block" alt="food">
+            <!-- Carousel caption -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>le big burg</h5>
+              <p>cuisine canadienne</p>
+            </div>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#theCarousel-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#theCarousel-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
   {% endblock content %}
+  
   {% block  script %}
 
-{% endblock script  %}
+  {% endblock script  %}
