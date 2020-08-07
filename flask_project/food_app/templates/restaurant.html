@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="..\static\styles\resto_style.css">
+{% endblock style %}
+{% block content %}
+<div class="container mt-4">
+    <div id="header-pr" class="bg-light p-3">
+        <div class="row mb-6">
+            <div class="col-lg-7" style="position: relative;">
+                <div id="placeholder" style="position: relative;">
+                    Image restaurant
+
+                </div>
+                <button class="add-photo btn">
+                     <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
+                            viewBox="0 0 488.455 488.455" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m244.236 137.374c-67.335 0-122.118 54.783-122.118 122.118s54.784 122.118 122.118 122.118 122.118-54.783 122.118-122.118-54.783-122.118-122.118-122.118zm0 213.706c-50.505 0-91.588-41.083-91.588-91.588s41.083-91.588 91.588-91.588 91.588 41.083 91.588 91.588-41.083 91.588-91.588 91.588z" />
+                            <path
+                                d="m488.292 137.292c-.015-25.214-20.572-45.733-45.794-45.733h-66.888l-26.326-52.603c-2.594-5.171-7.871-8.434-13.655-8.434h-183.176c-5.784 0-11.076 3.263-13.655 8.434l-26.296 52.618-66.782.089c-25.208.045-45.72 20.58-45.72 45.779v274.714c0 25.244 20.542 45.778 45.794 45.778h396.867c25.252 0 45.794-20.55 45.794-45.808zm-45.63 290.122h-396.867c-8.422 0-15.265-6.84-15.265-15.259v-274.714c0-8.405 6.842-15.244 15.235-15.259l76.204-.104c5.784-.015 11.061-3.278 13.64-8.434l26.281-52.604h164.304l26.326 52.603c2.594 5.171 7.871 8.434 13.655 8.434h76.324c8.408 0 15.444 6.84 15.444 15.244v274.819c-.001 8.419-6.859 15.274-15.281 15.274z" />
+                        </svg></i>Edit
+                </button>
+            </div>
+            <div class="col-lg-5">
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <div id="sml-placeholder">
+                            image food
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="sml-placeholder">
+                            image food
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div id="sml-placeholder">
+                            image food
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="sml-placeholder">
+                            image food
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="title-resto" class=" col font-weight-bold">
+                Restaurant Name<i class="mr-8">
+                    <svg class="Icon_material_edit" viewBox="4.5 4.496 27.004 27.004" width="27" height="27">
+                        <path fill="rgba(0,0,0,1)" id="Icon_material_edit"
+                            d="M 4.5 25.875 L 4.5 31.5 L 10.125 31.5 L 26.71500015258789 14.90999984741211 L 21.09000015258789 9.284999847412109 L 4.5 25.875 Z M 31.06500053405762 10.5600004196167 C 31.64999961853027 9.975000381469727 31.64999961853027 9.030000686645508 31.06500053405762 8.445000648498535 L 27.55500030517578 4.935000419616699 C 26.97000122070313 4.350000381469727 26.02499961853027 4.350000381469727 25.44000053405762 4.935000419616699 L 22.69499969482422 7.680000305175781 L 28.31999969482422 13.30500030517578 L 31.06499862670898 10.5600004196167 Z">
+                        </path>
+                    </svg>
+                </i>
+            </div>
+            <div class="col-md-auto clearfix">
+                <div id="rating" class="font-weight-bold float-right">
+                    4.2
+                </div>
+                <p id="rating-numbers">110 ratings</p>
+            </div>
+
+        </div>
+        <div class="d-flex flex-row">
+            <div class="p-2"><i class="mr-2">
+                    <svg enable-background="new 0 0 512 512"  height=1rem version="1.1"  viewBox="0 0 512 512" xml:space="preserve"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m256 0c-99.252 0-180 80.748-180 180 0 33.534 9.289 66.26 26.869 94.652l142.88 230.26c2.737 4.411 7.559 7.091 12.745 7.091h0.119c5.231-0.041 10.063-2.804 12.75-7.292l139.24-232.49c16.61-27.792 25.389-59.681 25.389-92.22 0-99.252-80.748-180-180-180zm128.87 256.82-126.59 211.37-129.9-209.34c-14.633-23.632-22.567-50.896-22.567-78.846 0-82.71 67.49-150.2 150.2-150.2s150.1 67.49 150.1 150.2c0 27.121-7.411 53.688-21.234 76.818z" />
+                        <path
+                            d="m256 90c-49.626 0-90 40.374-90 90 0 49.309 39.717 90 90 90 50.903 0 90-41.233 90-90 0-49.626-40.374-90-90-90zm0 150.2c-33.257 0-60.2-27.033-60.2-60.2 0-33.084 27.116-60.2 60.2-60.2s60.1 27.116 60.1 60.2c0 32.683-26.316 60.2-60.1 60.2z" />
+                    </svg>
+                </i>Quebec rougemont rue de la fayette</div>
+            <div class="s-divider"></div>
+            <div class="p-2">11pm to 10 pm</div>
+            <div class="s-divider"></div>
+            <div class="p-2">Nigerian , Ivorian , Guinean</div>
+            <div class="s-divider"></div>
+            <div class="p-2">418-568-789</div>
+        </div>
+    </div>
+    <div class="content-section mt-4">
+        <div class="details-form mt-4">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <div class="form-group">
+                        {{ form.description.label(class="form-control-label") }}
+
+                        {% if form.description.errors %}
+                        {{ form.description(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.description(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.address.label(class="form-control-label") }}
+
+                        {% if form.address.errors %}
+                        {{ form.address(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.address.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.address(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.specialities.label(class="form-control-label") }}
+                        {% if form.specialities.errors %}
+                        {{ form.specialities(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.specialities.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.specialities(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.phone_number.label(class="form-control-label") }}
+                        {% if form.phone_number.errors %}
+                        {{ form.phone_number(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone_number.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.phone_number(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group row">
+                    <div class="col align-self-end">
+                        {{ form.submit(class="btn btn-outline-info submit") }}
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
