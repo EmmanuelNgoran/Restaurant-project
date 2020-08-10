@@ -8,8 +8,10 @@
 
   <!-- Login form -->
   <div class="login_form">
-    <button type="button" class="btn btn-link">Login</button>
-    <button type="button" class="btn btn-link">Signup</button>
+    <a class="btn btn-link" href="/login" role="button">Login</a>
+    <!-- <button type="button" class="btn btn-link" href="/login">Login</button> -->
+    <a class="btn btn-link" href="/signup" role="button">Signup</a>
+    <!-- <button type="button" class="btn btn-link">Signup</button> -->
   </div>
   <div class="container-fluid content_wrapper ">
     <div class="row justify-content-center">
@@ -206,5 +208,5 @@
   {% endblock content %}
   
   {% block  script %}
-
+  <script src="../static/js/script.js"></script>
   {% endblock script  %}

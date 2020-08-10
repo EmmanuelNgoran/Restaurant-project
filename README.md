@@ -7,3 +7,9 @@
 #### -Create a virtual environment with the command virtualenv venv
 #### -Activate the virtual environment with the command venv\Scripts\Activate
 #### -Install the dependencies with the command pip install requierements
+
+
+# For next time (each time you want to run the web application)
+### -Activate the virtual environment with the command "activate" in the "Restaurant-project" folder 
+### - Go to "flask_project" folder
+### - Python manage.py runserver
