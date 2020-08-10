@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="..\static\styles\signup.css">
+{% endblock stylesheet %}
+
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+
+    <!-- navbar -->
+    <!-- A grey horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-sm custom">
+
+        <!-- Brand -->
+    <a class="navbar-brand mr-auto" href="/">exotic</a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="\login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="\signup">Signup </a>
+        </li>
+    </ul>
+    
+    </nav>
+
+    <div id="logreg-forms">
+            
+            <form action="/signup/" class="form-signup">
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up </h1>
+                <div class="social-login">
+                    <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span> </button>
+                </div>
+                <div class="social-login">
+                    <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google+</span> </button>
+                </div>
+                
+
+                <input type="text" id="user-name" class="form-control" placeholder="Username" required="" autofocus="">
+                <input type="email" id="user-email" class="form-control" placeholder="Email" required autofocus="">
+                <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+                <input type="password" id="user-repeatpass" class="form-control" placeholder="Confirm password" required autofocus="">
+
+                <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+            </form>
+            
+            <hr>
+
+            <div class="container already_account">
+                <p>Already have an account? <a href="/login" style="color: rgb(248, 74, 74);">Sign in</a>.</p>
+            </div>
+            
+    </div>
+ 
+{% endblock content %}
+
+{% block  script %}
+
+{% endblock script %}

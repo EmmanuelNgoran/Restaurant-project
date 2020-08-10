@@ -16,11 +16,3 @@ $('.multi-item-carousel').on('slide.bs.carousel', function (e) {
     }
   }
 });
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
