@@ -23,7 +23,7 @@
 }
 
 .add-photo{
-    padding:10px;
+    padding:15px 24px;
     position: absolute;
     left: 25px;
     bottom: 10px;
@@ -36,7 +36,7 @@
     margin-right: 3px;
 }
 #title-resto{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 #icon_material_edit{
     width: 25px;
@@ -75,4 +75,15 @@
 }
 #rating-numbers{
     margin-top: 5px;
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+    .details-form {
+    
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        width:100%;
+        
+      }
 }

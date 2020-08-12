@@ -12,7 +12,7 @@
 
                 </div>
                 <button class="add-photo btn">
-                     <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
+                    <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
                             viewBox="0 0 488.455 488.455" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="m244.236 137.374c-67.335 0-122.118 54.783-122.118 122.118s54.784 122.118 122.118 122.118 122.118-54.783 122.118-122.118-54.783-122.118-122.118-122.118zm0 213.706c-50.505 0-91.588-41.083-91.588-91.588s41.083-91.588 91.588-91.588 91.588 41.083 91.588 91.588-41.083 91.588-91.588 91.588z" />
@@ -59,17 +59,17 @@
                 </i>
             </div>
             <div class="col-md-auto clearfix">
-                <div id="rating" class="font-weight-bold float-right">
+                <div id="rating" class="font-weight-bold ">
                     4.2
                 </div>
-                <p id="rating-numbers">110 ratings</p>
+                <p id="rating-numbers" class="float-right">110 ratings</p>
             </div>
 
         </div>
         <div class="d-flex flex-row">
             <div class="p-2"><i class="mr-2">
-                    <svg enable-background="new 0 0 512 512"  height=1rem version="1.1"  viewBox="0 0 512 512" xml:space="preserve"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg enable-background="new 0 0 512 512" height=1rem version="1.1" viewBox="0 0 512 512"
+                        xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m256 0c-99.252 0-180 80.748-180 180 0 33.534 9.289 66.26 26.869 94.652l142.88 230.26c2.737 4.411 7.559 7.091 12.745 7.091h0.119c5.231-0.041 10.063-2.804 12.75-7.292l139.24-232.49c16.61-27.792 25.389-59.681 25.389-92.22 0-99.252-80.748-180-180-180zm128.87 256.82-126.59 211.37-129.9-209.34c-14.633-23.632-22.567-50.896-22.567-78.846 0-82.71 67.49-150.2 150.2-150.2s150.1 67.49 150.1 150.2c0 27.121-7.411 53.688-21.234 76.818z" />
                         <path
@@ -103,19 +103,35 @@
                         {{ form.description(class="form-control form-control-lg") }}
                         {% endif %}
                     </div>
-                    <div class="form-group">
-                        {{ form.address.label(class="form-control-label") }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form.street_address.label(class="form-control-label") }}
 
-                        {% if form.address.errors %}
-                        {{ form.address(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.address.errors %}
-                            <span>{{ error }}</span>
-                            {% endfor %}
+                            {% if form.street_address.errors %}
+                            {{ form.street_address(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.street_address.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.street_address(class="form-control form-control-lg") }}
+                            {% endif %}
                         </div>
-                        {% else %}
-                        {{ form.address(class="form-control form-control-lg") }}
-                        {% endif %}
+                        <div class="form-group col-md-6">
+                            {{ form.city.label(class="form-control-label") }}
+
+                            {% if form.city.errors %}
+                            {{ form.city(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.city.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.city(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="form-group">
                         {{ form.email.label(class="form-control-label") }}
@@ -141,6 +157,19 @@
                         </div>
                         {% else %}
                         {{ form.specialities(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.average_price.label(class="form-control-label") }}
+                        {% if form.average_price.errors %}
+                        {{ form.average_price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.average_price.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.average_price(class="form-control form-control-lg") }}
                         {% endif %}
                     </div>
                     <div class="form-group">

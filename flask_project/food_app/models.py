@@ -2,22 +2,24 @@ from food_app import db
 
 from datetime import datetime
 
+"""On migration don't forget to timestamp the state of the database
+by running db stamp head"""
 
 class Restaurant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), nullable=False)
     description = db.Column(db.String(200), nullable=True)
-    address = db.Column(db.Integer , db.ForeignKey('address.id') , nullable=True)
     telephone_number = db.Column(db.String(10) , nullable=False)
     average_price=db.Column(db.Integer , nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer , db.ForeignKey('user.id') , nullable=True)
-    
+    address_id=db.Column(db.Integer , db.ForeignKey('address.id') , nullable=True)
+
     dishes = db.relationship('Dish', backref='resto', lazy=True)
     menus = db.relationship('Menu', backref='resto', lazy=True)
     
     def __repr__(self):
-        return f"<Restaurant('{self.name}', '{self.city}')>"
+        return f"<Restaurant('{self.name}', '{self.date_created}')>"
 
 
 class Address(db.Model):
@@ -27,7 +29,7 @@ class Address(db.Model):
     state_id = db.Column(db.Integer ,db.ForeignKey('state.id') , nullable=True )
     country_id = db.Column(db.Integer ,db.ForeignKey('country.id') , nullable=True )
     
-    
+    resto = db.relationship('Restaurant', backref='address' , lazy=True)
 
     def __repr__(self):
         return f"<Address('{self.street_address}')>'"
@@ -45,7 +47,7 @@ class Country(db.Model):
     name=db.Column(db.String(50),nullable=False)
     code=db.Column(db.Integer , nullable=True)
 
-    address = db.relationship('Restaurant', backref='country', lazy=True)
+    #address = db.relationship('Restaurant', backref='country', lazy=True)
 
     def __repr__(self):
         return f"<Country('{self.name}')>'"
@@ -109,13 +111,13 @@ class User(db.Model):
     def __repr__(self):
         return f"<User('{self.username}', '{self.email}', '{self.image_file}')>"
 
-
+"""
 class RestaurantOwner(User):
     restaurant_id = db.Column(db.Integer,db.ForeignKey('restaurant.id'), nullable=False)
 
     def __repr__(self):
         return f"<RestaurantOwner('{self.username}','{self.email}')>"
-
+"""
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
