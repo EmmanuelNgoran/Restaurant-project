@@ -1,18 +1,33 @@
 {% extends "base.html" %}
-  <!-- Background image -->
+
+{% block stylesheet %}
+{% endblock stylesheet %}
+
 {% block content %}
+
+<!-- Background image -->
   <div class="bg">
     <div class="layer">
+    <nav class="navbar">
+
+      <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+    
+<!-- Login form -->
+    <div class="navbar-links">
+      <ul>
+        <li><a href="\login">Login</a></li>
+        <li><a href="\signup">Signup</a></li>
+      </ul>
+    </div>
+    
+    </nav>
     </div>
   </div>
-
-  <!-- Login form -->
-  <div class="login_form">
-    <a class="btn btn-link" href="/login" role="button">Login</a>
-    <!-- <button type="button" class="btn btn-link" href="/login">Login</button> -->
-    <a class="btn btn-link" href="/signup" role="button">Signup</a>
-    <!-- <button type="button" class="btn btn-link">Signup</button> -->
-  </div>
+  
   <div class="container-fluid content_wrapper ">
     <div class="row justify-content-center">
       <p class="website_name"> exotic </p>
@@ -63,7 +78,7 @@
     <div class="row" style="margin-top:20px;">
       <h1> Trending exotic foods </h1>
     </div>
-    <div class="row justify-content-center" style="margin-top:20px;">
+    <div class="btn-toolbar" style="margin-top:20px;">
       <a href="#" class="btn tag">African food</a>
       <a href="#" class="btn tag">Caribean food</a>
       <a href="#" class="btn tag">American food</a>
@@ -78,7 +93,7 @@
         <div class="carousel-item active col-md-4">
           <img src="../static/images/food.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>soupe</h5>
               <p>cuisine espagnol</p>
             </div>
@@ -86,7 +101,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/food1.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>soupe</h5>
               <p>cuisine québécoise</p>
             </div>  
@@ -94,7 +109,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/food2.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>lentille</h5>
               <p>cuisine antillaise</p>
             </div>
@@ -102,7 +117,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/food3.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>sauce légume</h5>
               <p>cuisine haitienne</p>
             </div>
@@ -110,7 +125,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/food4.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>garba</h5>
               <p>cuisine ivoirienne</p>
             </div>
@@ -118,7 +133,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/food5.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>wintchin</h5>
               <p>cuisine burkinabé</p>
             </div>
@@ -147,7 +162,7 @@
         <div class="carousel-item active col-md-4">
           <img src="../static/images/resto1.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>Le Porkodjro</h5>
               <p>restaurant allemand</p>
             </div>
@@ -155,7 +170,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/resto2.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>le burger wow</h5>
               <p>cuisine americaine</p>
             </div>  
@@ -163,7 +178,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/resto3.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>le resto du coeur</h5>
               <p>restaurant suisse</p>
             </div>
@@ -171,7 +186,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/resto4.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>l'opera</h5>
               <p>restaurant ivoirien</p>
             </div>
@@ -179,7 +194,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/resto5.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>chez Akissi</h5>
               <p>cuisine ghanéenne</p>
             </div>
@@ -187,7 +202,7 @@
         <div class="carousel-item col-md-4">
           <img src="../static/images/resto6.jpg" class="img-fluid mx-auto d-block" alt="food">
             <!-- Carousel caption -->
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5>le big burg</h5>
               <p>cuisine canadienne</p>
             </div>
