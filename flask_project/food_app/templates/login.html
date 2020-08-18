@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="..\static\styles\login.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="..\static\styles\login.css">
 {% endblock stylesheet %}
 
-{% block title %}  Login{% endblock %}
+{% block title %} Login{% endblock %}
 
 {% block content %}
 
@@ -13,33 +14,53 @@
 <!-- A grey horizontal navbar that becomes vertical on small screens -->
 <nav class="navbar navbar-expand-sm custom">
     <!-- Brand -->
-    <a class="navbar-brand mr-auto" href="/"> exotic </a> 
+    <a class="navbar-brand mr-auto" href="/"> exotic </a>
 </nav>
 
-    <div id="logreg-forms">
-        <form class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center; font-size: 1.9rem;"> Sign in</h1>
-            <div class="social-login">
-                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Log in with Facebook</span> </button>
-                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Log in with Google+</span> </button>
-            </div>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            
-            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
-            <a href="/forgot_password" id="forgot_pswd">Forgot password?</a>
-            <hr>
-            <!-- <p>Don't have an account!</p>  -->
-            <a class="btn btn-primary btn-block" href="/signup" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Create an account</a>
+<div id="logreg-forms">
+    <form class="form-signin" method="POST", action="">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center; font-size: 1.9rem;"> Sign in</h1>
+        <div class="social-login">
+            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Log in
+                    with Facebook</span> </button>
+            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Log in
+                    with Google+</span> </button>
+        </div>
+        {% if form.email.errors %}
+        {{ form.email(class="form-control  is-invalid" , placeholder="Email") }}
+        <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.email(class="form-control " , placeholder="Email") }}
+        {% endif %}
+        {% if form.password.errors %}
+        {{ form.password(class="form-control  is-invalid" , placeholder="Password") }}
+        <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.password(class="form-control " , placeholder="Password") }}
+        {% endif %}
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <a href="/forgot_password" id="forgot_pswd">Forgot password?</a>
+        <hr>
+        <!-- <p>Don't have an account!</p>  -->
+        <a class="btn btn-primary btn-block" href="/signup" type="button" id="btn-signup"><i
+                class="fas fa-user-plus"></i> Create an account</a>
 
-        </form>
+    </form>
 
     <br>
-            
-    </div>
- 
+
+</div>
+
 {% endblock content %}
 
 {% block  script %}
- 
+
 {% endblock script %}

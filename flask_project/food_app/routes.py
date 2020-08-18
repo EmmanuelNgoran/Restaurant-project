@@ -1,7 +1,7 @@
 from food_app import app
 from .models import *
 from flask import render_template
-from .forms import SearchForm , RestaurantCreationForm
+from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -25,13 +25,20 @@ def restaurant():
 def result():
     return render_template('result.html')
 
-@app.route('/login')
+@app.route('/login' , methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    form =UserLoginForm()
+    if form.validate_on_submit():
+        app.logger.info(f"form fields : email: \t{form.email.data}")
+    return render_template('login.html' , form=form)
 
-@app.route('/signup')
+@app.route('/signup',methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    form = UserRegistrationForm()
+    #app.logger.info('Processing Sign up request')
+    if form.validate_on_submit():
+        app.logger.info(f"form fields : username :  {form.username.data}\nemail: \t{form.email.data}")
+    return render_template('signup.html' , form=form)
 
 @app.route('/forgot_password')
 def forgot_password():
