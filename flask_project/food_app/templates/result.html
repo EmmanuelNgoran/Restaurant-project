@@ -31,94 +31,95 @@
  <div class="row" style="margin-top:20px;">
    <h1> African Restaurant in your area </h1>
  </div>
-</div>
 
-<div class="rectangle">
-  <p class="filter_content">Filter by:</p>
-  <hr>
-  <p class="cuisine_text">Cuisine</p>
-  <div class="dropdown">
-    <button class="btn btn-secondary btn-lg dropdown-toggle cuisine_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      All 
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">African</a>
-      <a class="dropdown-item" href="#">European</a>
-      <a class="dropdown-item" href="#">Asian</a>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label id="filter_content">Filter by:</label>
+      <label class="cuisine_text">Cuisine</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-lg dropdown-toggle cuisine_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          All 
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">African</a>
+          <a class="dropdown-item" href="#">European</a>
+          <a class="dropdown-item" href="#">Asian</a>
+        </div>
+      </div>
+      <label class="price_text">Price</label>
+    <div class="dropdown">
+      <button class="btn btn-secondary btn-lg dropdown-toggle price_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        $$$ 
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">$15 - $20</a>
+        <a class="dropdown-item" href="#">$21 - $39</a>
+        <a class="dropdown-item" href="#">$40 - $50</a>
+      </div>
     </div>
-  </div>
-
-  <p class="price_text">Price</p>
-  <div class="dropdown">
-    <button class="btn btn-secondary btn-lg dropdown-toggle price_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      $$$ 
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">$15 - $20</a>
-      <a class="dropdown-item" href="#">$21 - $39</a>
-      <a class="dropdown-item" href="#">$40 - $50</a>
+    <label class="other_text">Other</label>
+    <div class="dropdown">
+      <button class="btn btn-secondary btn-lg dropdown-toggle other_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        All 
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">African</a>
+        <a class="dropdown-item" href="#">European</a>
+        <a class="dropdown-item" href="#">Asian</a>
+      </div>
     </div>
-  </div>
-
-  <p class="other_text">Other</p>
-  <div class="dropdown">
-    <button class="btn btn-secondary btn-lg dropdown-toggle other_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      All 
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">African</a>
-      <a class="dropdown-item" href="#">European</a>
-      <a class="dropdown-item" href="#">Asian</a>
+    <label class="dist_text">Distance</label>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      <p class="dist">0- <span id="demo"></span>km</p>
     </div>
+    </div>
+    
   </div>
-
-  <p class="dist_text">Distance</p>
-  <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-    <p class="dist">0- <span id="demo"></span>km</p>
-  </div>
-</div>
+  <div class="col-md-8">
+    <div class="card flex-row flex-wrap">
+      <div class="card-header border-0">
+          <img class="card-img-top" src="../static/images/food.jpg" alt="Card image cap">
+      </div>
+      <div class="card-block px-2">
+        <h5 class="card-title">La calebasse</h5>
+        <div class="square"><div class="rating_content">4.2</div></div>
+        <div class="rating-score">110 ratings</div>
+        <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+        <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+        <address> Quebec , Rougemont , 741 Rue la fayette </address>
+      </div>
+      <div class="card-footer w-100 text-icon">
+        <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
+        <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+      </div>
+    </div>
   
-
-<div class="container">
-  <div class="card flex-row flex-wrap">
-    <div class="card-header border-0">
-        <img class="card-img-top" src="../static/images/food.jpg" alt="Card image cap">
+    <div class="card flex-row flex-wrap mt-4">
+      <div class="card-header border-0">
+          <img class="card-img-top" src="../static/images/food5.jpg" alt="Card image cap">
+      </div>
+      <div class="card-block px-2">
+        <h5 class="card-title">La calebasse</h5>
+        <div class="square"><div class="rating_content">4.2</div></div>
+        <div class="rating-score">110 ratings</div>
+        <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+        <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+        <address> Quebec , Rougemont , 741 Rue la fayette </address>
+      </div>
+      <div class="card-footer w-100 text-icon">
+        <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
+        <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+      </div>
     </div>
-    <div class="card-block px-2">
-      <h5 class="card-title">La calebasse</h5>
-      <div class="square"><div class="rating_content">4.2</div></div>
-      <div class="rating-score">110 ratings</div>
-      <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
-      <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
-      <address> Quebec , Rougemont , 741 Rue la fayette </address>
-    </div>
-    <div class="card-footer w-100 text-icon">
-      <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
-      <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
-    </div>
+  
   </div>
+</div>
 
-  <div class="card flex-row flex-wrap mt-4">
-    <div class="card-header border-0">
-        <img class="card-img-top" src="../static/images/food5.jpg" alt="Card image cap">
-    </div>
-    <div class="card-block px-2">
-      <h5 class="card-title">La calebasse</h5>
-      <div class="square"><div class="rating_content">4.2</div></div>
-      <div class="rating-score">110 ratings</div>
-      <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
-      <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
-      <address> Quebec , Rougemont , 741 Rue la fayette </address>
-    </div>
-    <div class="card-footer w-100 text-icon">
-      <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
-      <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
-    </div>
-  </div>
+
 
 </div>
- 
 
 {% endblock content %}
   

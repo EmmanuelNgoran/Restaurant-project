@@ -1,8 +1,16 @@
-from food_app import app
-from .models import *
-from flask import render_template
+from food_app import app , db
+from food_app.models import *
+from flask import render_template , redirect , url_for , flash
 from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm
+from flask_login import current_user , login_user
 
+#decorator for authentification
+def is_authenticated(func,*args,**kwargs):
+    def wrapper(*args,**kwargs):
+        if current_user.is_authenticated:
+            return redirect(url_for('home'))
+        func(*args,**kwargs)
+    return wrapper
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -16,28 +24,45 @@ def home():
 @app.route('/resto',methods=['GET', 'POST'])
 def restaurant():
     form = RestaurantCreationForm()
-    app.logger.info('Processing default request')
     if form.validate_on_submit():
-        app.logger.info(f"form fields : description :  {form.description.data}\nemail: \t{form.email.data}")
+        pass
     return render_template('restaurant.html', title='Home' , form=form)
 
 @app.route('/result')
 def result():
     return render_template('result.html')
 
+
 @app.route('/login' , methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+            return redirect(url_for('home'))
     form =UserLoginForm()
     if form.validate_on_submit():
-        app.logger.info(f"form fields : email: \t{form.email.data}")
+        user=User.query.filter_by(email=form.email.data).first()
+        if user and user.is_password(form.password.data):
+            login_user(user)
+            app.logger.info('successfully to log in')
+            redirect(url_for('home'))
+        else:
+            flash('The details you have entered are not valid , please try again', 'danger')
+            app.logger.info('failed to log in')
     return render_template('login.html' , form=form)
+
 
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
+    if current_user.is_authenticated:
+            return redirect(url_for('home'))
     form = UserRegistrationForm()
     #app.logger.info('Processing Sign up request')
     if form.validate_on_submit():
-        app.logger.info(f"form fields : username :  {form.username.data}\nemail: \t{form.email.data}")
+        user=User(username=form.username.data,email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You are now able to log in', 'success')
+        return redirect(url_for('login'))
     return render_template('signup.html' , form=form)
 
 @app.route('/forgot_password')

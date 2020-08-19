@@ -41,11 +41,17 @@
   .navbar-expand-sm .navbar-nav .nav-link:focus {
     outline: none !important; 
   }
-  
-  .card {
-    width: 61%;
-    left: 19rem;
+  .container h1 {
+    font-size: 151%;
+    font-weight: normal;
+    font-style: normal;
+    font-family: "Roboto";
+
+    
   }
+  .card {
+    width: 100%;
+    }
   
   .card-img-top{
     width: 19rem;
@@ -106,7 +112,6 @@
     font-weight: normal;
     color: black;
     position: relative;
-    top: 10px;
     font-size: 1.3rem;
     font-weight: 600;
   }
@@ -142,15 +147,7 @@
     color: rgba(99,99,99,1)
   }
   
-  .container h1 {
-    font-size: 151%;
-    font-weight: normal;
-    font-style: normal;
-    font-family: "Roboto";
-    margin-bottom: 25px;
-    margin-top: 15px;
-    margin-left: 123px;
-  }
+  
   
   .square {
     height: 50px;
@@ -198,26 +195,19 @@
   } 
   
   .rectangle {
-    height: 24rem;
-    width: 12rem;
-    position: absolute;
-    top: 146.5px;
-    left: 226px;
+    
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
   }
   
-  .filter_content {
+  #filter_content {
       font-family: "Roboto";
       font-style: normal;
       font-weight: normal;
       font-size: 1.1rem;
       color: rgba(99,99,99,1);  
-      position: absolute;
-      left: 7px;
-      top: 7px;
   }
   
   .btn-lg {
@@ -240,9 +230,7 @@
     padding-left: 10px;
     text-align: left;
     height: 2rem;
-    position: absolute;
-    left: 7px;
-    top: 6px;
+    
   }
   
   .price_dropdown {
@@ -296,10 +284,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 1.1rem;
-    color: rgba(99,99,99,1);  
-    position: absolute;
-    left: 7px;
-    top: 45px;
+    color: rgba(99,99,99,1); 
   }
   
   .price_text {

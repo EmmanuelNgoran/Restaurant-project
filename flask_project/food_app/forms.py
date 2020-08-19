@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,  SubmitField , TextAreaField
-from wtforms.validators import DataRequired, Length, EqualTo 
-
+from wtforms import StringField,  SubmitField , TextAreaField , PasswordField
+from wtforms.validators import DataRequired, Length, EqualTo ,Email, ValidationError
+from food_app.models import User
+from food_app import db
 
 class SearchForm(FlaskForm):
     cuisine_string = StringField('cuisine',
@@ -24,7 +25,7 @@ class RestaurantCreationForm(FlaskForm):
     state = StringField('State',
                            validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email',
-                        validators=[DataRequired()])
+                        validators=[DataRequired() , Email()])
     average_price = StringField('Average Price',
                         validators=[DataRequired()])
     specialities = StringField('Specialities',
@@ -37,12 +38,32 @@ class RestaurantCreationForm(FlaskForm):
 class UserRegistrationForm(FlaskForm):
     
     username = StringField("username" , validators=[DataRequired(), Length(min=2, max=200)])
-    email = StringField("email" , validators=[DataRequired(), Length(min=2, max=200)])
-    password = StringField("password" , validators=[DataRequired(), Length(min=2, max=200)])
-    confirm_password = StringField("confirm password" , validators=[DataRequired(), Length(min=2, max=200)])
+    email = StringField("email" , validators=[DataRequired(), Length(min=2, max=200) , Email()])
+    password = PasswordField("password" , validators=[DataRequired(), Length(min=2, max=200)])
+    confirm_password = PasswordField("confirm password" , validators=[DataRequired(), Length(min=2, max=200)])
 
-    submit = SubmitField('Sign Up')
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('That username is taken. Please choose a different one.')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('That email is taken. Please choose a different one.')
+    
+    #submit = SubmitField('Sign Up')
 
 class UserLoginForm(FlaskForm):
-    email = StringField("email" , validators=[DataRequired(), Length(min=2, max=200)])
-    password = StringField("password" , validators=[DataRequired(), Length(min=2, max=200)])
+    email = StringField("email" , validators=[DataRequired(), Length(min=2, max=50)])
+    password = PasswordField("password" , validators=[DataRequired(), Length(min=2, max=20)])
+
+    def validate_email(self, email):
+        user = self.get_user()
+        if user is None:
+            raise validators.ValidationError('Invalid user')
+        if not user.is_password(self.password.data):
+            raise validators.ValidationError('Invalid password')
+
+    def get_user(self):
+        return db.session.query(User).filter_by(email=self.email.data).first()
