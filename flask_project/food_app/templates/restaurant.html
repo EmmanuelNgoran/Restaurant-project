@@ -49,152 +49,153 @@
             </div>
         </div>
         <div class="row">
-            <div id="title-resto" class=" col font-weight-bold">
-                Restaurant Name<i class="mr-8">
-                    <svg class="Icon_material_edit" viewBox="4.5 4.496 27.004 27.004" width="27" height="27">
-                        <path fill="rgba(0,0,0,1)" id="Icon_material_edit"
-                            d="M 4.5 25.875 L 4.5 31.5 L 10.125 31.5 L 26.71500015258789 14.90999984741211 L 21.09000015258789 9.284999847412109 L 4.5 25.875 Z M 31.06500053405762 10.5600004196167 C 31.64999961853027 9.975000381469727 31.64999961853027 9.030000686645508 31.06500053405762 8.445000648498535 L 27.55500030517578 4.935000419616699 C 26.97000122070313 4.350000381469727 26.02499961853027 4.350000381469727 25.44000053405762 4.935000419616699 L 22.69499969482422 7.680000305175781 L 28.31999969482422 13.30500030517578 L 31.06499862670898 10.5600004196167 Z">
-                        </path>
-                    </svg>
-                </i>
-            </div>
-            <div class="col-md-auto clearfix">
-                <div id="rating" class="font-weight-bold ">
-                    4.2
+            <div  class="col font-weight-bold">
+                <div id="title-resto">
+                    Restaurant Name<i class="mr-8">
+                        <svg class="Icon_material_edit" viewBox="4.5 4.496 27.004 27.004" width="27" height="27">
+                            <path fill="rgba(0,0,0,1)" id="Icon_material_edit"
+                                d="M 4.5 25.875 L 4.5 31.5 L 10.125 31.5 L 26.71500015258789 14.90999984741211 L 21.09000015258789 9.284999847412109 L 4.5 25.875 Z M 31.06500053405762 10.5600004196167 C 31.64999961853027 9.975000381469727 31.64999961853027 9.030000686645508 31.06500053405762 8.445000648498535 L 27.55500030517578 4.935000419616699 C 26.97000122070313 4.350000381469727 26.02499961853027 4.350000381469727 25.44000053405762 4.935000419616699 L 22.69499969482422 7.680000305175781 L 28.31999969482422 13.30500030517578 L 31.06499862670898 10.5600004196167 Z">
+                            </path>
+                        </svg>
+                    </i>
                 </div>
-                <p id="rating-numbers" class="float-right">110 ratings</p>
-            </div>
-
-        </div>
-        <div class="d-flex flex-row">
-            <div class="p-2"><i class="mr-2">
-                    <svg enable-background="new 0 0 512 512" height=1rem version="1.1" viewBox="0 0 512 512"
-                        xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="m256 0c-99.252 0-180 80.748-180 180 0 33.534 9.289 66.26 26.869 94.652l142.88 230.26c2.737 4.411 7.559 7.091 12.745 7.091h0.119c5.231-0.041 10.063-2.804 12.75-7.292l139.24-232.49c16.61-27.792 25.389-59.681 25.389-92.22 0-99.252-80.748-180-180-180zm128.87 256.82-126.59 211.37-129.9-209.34c-14.633-23.632-22.567-50.896-22.567-78.846 0-82.71 67.49-150.2 150.2-150.2s150.1 67.49 150.1 150.2c0 27.121-7.411 53.688-21.234 76.818z" />
-                        <path
-                            d="m256 90c-49.626 0-90 40.374-90 90 0 49.309 39.717 90 90 90 50.903 0 90-41.233 90-90 0-49.626-40.374-90-90-90zm0 150.2c-33.257 0-60.2-27.033-60.2-60.2 0-33.084 27.116-60.2 60.2-60.2s60.1 27.116 60.1 60.2c0 32.683-26.316 60.2-60.1 60.2z" />
-                    </svg>
-                </i>Quebec rougemont rue de la fayette</div>
-            <div class="s-divider"></div>
-            <div class="p-2">11pm to 10 pm</div>
-            <div class="s-divider"></div>
-            <div class="p-2">Nigerian , Ivorian , Guinean</div>
-            <div class="s-divider"></div>
-            <div class="p-2">418-568-789</div>
-        </div>
-    </div>
-    <div class="content-section mt-4">
-        <div class="details-form mt-4">
-            <form method="POST" action="">
-                {{ form.hidden_tag() }}
-                <fieldset class="form-group">
-                    <div class="form-group">
-                        {{ form.description.label(class="form-control-label") }}
-
-                        {% if form.description.errors %}
-                        {{ form.description(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.description.errors %}
-                            <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                        {{ form.description(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            {{ form.street_address.label(class="form-control-label") }}
-
-                            {% if form.street_address.errors %}
-                            {{ form.street_address(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.street_address.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.street_address(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {{ form.city.label(class="form-control-label") }}
-
-                            {% if form.city.errors %}
-                            {{ form.city(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.city.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.city(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ form.email.label(class="form-control-label") }}
-                        {% if form.email.errors %}
-                        {{ form.email(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
-                            <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                        {{ form.email(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form.specialities.label(class="form-control-label") }}
-                        {% if form.specialities.errors %}
-                        {{ form.specialities(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.specialities.errors %}
-                            <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                        {{ form.specialities(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form.average_price.label(class="form-control-label") }}
-                        {% if form.average_price.errors %}
-                        {{ form.average_price(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.average_price.errors %}
-                            <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                        {{ form.average_price(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form.phone_number.label(class="form-control-label") }}
-                        {% if form.phone_number.errors %}
-                        {{ form.phone_number(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.phone_number.errors %}
-                            <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                        {{ form.phone_number(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                </fieldset>
-                <div class="form-group row">
-                    <div class="col align-self-end">
-                        {{ form.submit(class="btn btn-outline-info submit") }}
-                    </div>
-
+                <div class="d-flex flex-row">
+                    <div class="p-2"><i class="mr-2">
+                            <svg enable-background="new 0 0 512 512" height=1rem version="1.1" viewBox="0 0 512 512"
+                                xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m256 0c-99.252 0-180 80.748-180 180 0 33.534 9.289 66.26 26.869 94.652l142.88 230.26c2.737 4.411 7.559 7.091 12.745 7.091h0.119c5.231-0.041 10.063-2.804 12.75-7.292l139.24-232.49c16.61-27.792 25.389-59.681 25.389-92.22 0-99.252-80.748-180-180-180zm128.87 256.82-126.59 211.37-129.9-209.34c-14.633-23.632-22.567-50.896-22.567-78.846 0-82.71 67.49-150.2 150.2-150.2s150.1 67.49 150.1 150.2c0 27.121-7.411 53.688-21.234 76.818z" />
+                                <path
+                                    d="m256 90c-49.626 0-90 40.374-90 90 0 49.309 39.717 90 90 90 50.903 0 90-41.233 90-90 0-49.626-40.374-90-90-90zm0 150.2c-33.257 0-60.2-27.033-60.2-60.2 0-33.084 27.116-60.2 60.2-60.2s60.1 27.116 60.1 60.2c0 32.683-26.316 60.2-60.1 60.2z" />
+                            </svg>
+                        </i>Quebec rougemont rue de la fayette</div>
+                    <div class="s-divider"></div>
+                    <div class="p-2">11pm to 10 pm</div>
+                    <div class="s-divider"></div>
+                    <div class="p-2">Nigerian , Ivorian , Guinean</div>
+                    <div class="s-divider"></div>
+                    <div class="p-2">418-568-789</div>
                 </div>
-            </form>
+            </div>
+            <div class="col-auto">
+                <div class="row justify-content-end">
+                    <div id="rating" class="font-weight-bold col">
+                        4.2
+                    </div> 
+                </div>
+                <div class="row">
+                    <p id="rating-numbers">110 ratings</p>
+                </div>
+                
+            </div>
         </div>
+        
     </div>
+    {% include 'resto_form.html' %}
+    <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Collapsible Group Item #1
+              </button>
+            </h5>
+          </div>
+      
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../static/images/menu_1.png" alt="Menu 1">
+                    <h3>
+                        Menu Salad
+                    </h3>
+                </div>
+                <div class="col-md-4">
+                    <img src="../static/images/menu_1.png" alt="Menu 1">
+                    <h3>
+                        Menu Main
+                    </h3>
+                </div>
+                <div class="col-md-4">
+                    <img src="../static/images/menu_1.png" alt="Menu 1">
+                    <h3>
+                        Menu Dessert
+                    </h3>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Collapsible Group Item #2
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row dish_card">
+                        <div class="col img_dish">
+                            <img src="../static/images/plat_1.png" alt="plat 1">
+                        </div>
+                        <div class="col dish_body" >
+                            <h5>
+                                Soupe de tomate fraiche
+                            </h5>
+                            <p class="dish_desc">
+                                Laitue romaine, croûtons à l'ail,
+                                 lardons, copeaux de parmesan et
+                                  vinaigrette maison / Romaine lettuce
+                                  , garlic croutons, bacon
+                            </p>
+                            <p class="dish_price">
+                                20$
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="row dish_card">
+                        <div class="col img_dish">
+                            <img src="../static/images/plat_1.png" alt="plat 1">
+                        </div>
+                        <div class="col dish_body" >
+                            <h5>
+                                Soupe de tomate fraiche
+                            </h5>
+                            <p class="dish_desc">
+                                Laitue romaine, croûtons à l'ail,
+                                 lardons, copeaux de parmesan et
+                                  vinaigrette maison / Romaine lettuce
+                                  , garlic croutons, bacon
+                            </p>
+                            <p class="dish_price">
+                                20$
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Collapsible Group Item #3
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 
 

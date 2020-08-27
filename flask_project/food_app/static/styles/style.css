@@ -297,6 +297,49 @@ input {
   
 }
 
+/*******************Mobile bar**************************/
+#mobile-content{
+  display:none;
+}
+#mobile-content .col-md-8>div{
+ margin-bottom: 15px;
+ border-radius: 0.6rem;
+ background-color: white;
+
+}
+#search-city{
+  height:3rem;
+  align-self: center;
+}
+#icon-city{
+  margin-left: 10px;
+}
+#search-city input{
+  height:3rem;
+  width: 90%;
+  margin-left:  0px 10px;;
+}
+#search-text input{
+  height: 3rem;
+  width: 90%;
+  margin-left:10px;
+}
+#button-search{
+  height: inherit;
+  border-radius: 0 0.6rem 0.6rem 0;
+  width:3.5rem;
+  border:initial;
+
+}
+
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:80%;
+}
+
 .list-food{
 position: relative;
 left: 0%;
@@ -407,6 +450,12 @@ h1{
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+  #mobile-content{
+    display: block;
+  }
+  .search_bar{
+    display: none;
+  }
    .toggle-button{
       display: flex;
    } 
@@ -489,6 +538,7 @@ h1{
   .btn-toolbar {
     justify-content: center;
   }
+
 }
 
 

@@ -1,8 +1,11 @@
 from flask import Flask, url_for, redirect, render_template, request
 from food_app import db ,login_manager , current_user,login_user,app,ModelView
-from flask_admin import Admin , helpers , expose , AdminIndexView 
+from flask_admin import Admin , helpers , expose , AdminIndexView , form
 from .models import *
 from .forms import UserLoginForm , UserRegistrationForm
+import os.path as op
+from jinja2 import Markup
+ 
 
 import flask_login as login
 
@@ -11,7 +14,7 @@ import flask_login as login
 
 #from wtforms import form, fields, validators
 
-
+file_path = op.join(op.dirname(__file__), 'static/images')
 # Initialize flask-login
 """
 def init_login():
@@ -31,6 +34,24 @@ class MyModelView(ModelView):
         return current_user.is_authenticated
 
 
+class ImageView(MyModelView):
+    """
+    def _list_thumbnail(view, context, model, name):
+        if not model.path:
+            return ''
+        print("%s" % (file_path,form.thumbgen_filename(model.photo_path)))
+        return Markup('<img src="%s">' % (op.join(file_path))
+                                                 )
+
+    column_formatters = {
+        'path': _list_thumbnail
+    }
+"""
+    form_extra_fields = {
+        'photo_path': form.ImageUploadField('ImageItem',
+                                      base_path=file_path,
+                                      thumbnail_size=(100, 100, True))
+    }
 # Create customized index view class that handles login & registration
 class MyAdminIndexView(AdminIndexView):
 
@@ -57,7 +78,7 @@ class MyAdminIndexView(AdminIndexView):
 
     @expose('/register/', methods=('GET', 'POST'))
     def register_view(self):
-        form = RegistrationForm()
+        form = UserRegistrationForm()
         if form.validate_on_submit():
             user=User(username=form.username.data,email=form.email.data)
             user.set_password(form.password.data)
@@ -88,6 +109,7 @@ admin.add_view(MyModelView(Restaurant , db.session))
 admin.add_view(MyModelView(Dish , db.session))
 admin.add_view(MyModelView(Address , db.session))
 admin.add_view(MyModelView(Menu , db.session))
+admin.add_view(ImageView(ImageItem,db.session))
 
 
 

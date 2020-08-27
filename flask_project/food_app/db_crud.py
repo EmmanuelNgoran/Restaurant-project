@@ -1,8 +1,8 @@
+from sqlalchemy import db
 
+class DataHandler():
 
-class DataManager():
-
-    def __init__(self,db):
+    def __init__(self):
         self.db=db
 
     @staticmethod
