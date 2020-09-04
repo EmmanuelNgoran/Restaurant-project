@@ -237,6 +237,16 @@ body {
   border-radius: 0.8rem;
   padding: 0px 1rem; 
 }
+/* search content options*/
+#result_opt{
+  position: absolute;
+    /* left: 0; */
+    top: 60px;
+    padding: 10px;
+    /* bottom: 0; */
+    background: white;
+    width: 100%;
+}
 .submit_search {
   display: flex;
   justify-content: space-around;

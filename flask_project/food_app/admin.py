@@ -35,18 +35,18 @@ class MyModelView(ModelView):
 
 
 class ImageView(MyModelView):
-    """
+    
     def _list_thumbnail(view, context, model, name):
-        if not model.path:
+        if not model.photo_path:
             return ''
-        print("%s" % (file_path,form.thumbgen_filename(model.photo_path)))
-        return Markup('<img src="%s">' % (op.join(file_path))
+        return Markup('<img src="%s">' % (url_for('static',
+                                                 filename='images/'+form.thumbgen_filename(model.photo_path)))
                                                  )
 
     column_formatters = {
-        'path': _list_thumbnail
+        'photo_path': _list_thumbnail
     }
-"""
+
     form_extra_fields = {
         'photo_path': form.ImageUploadField('ImageItem',
                                       base_path=file_path,

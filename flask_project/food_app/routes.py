@@ -1,12 +1,13 @@
 from functools import wraps
 from food_app import app , db
 from food_app.models import *
-from flask import render_template , redirect , url_for , flash
+from flask import (render_template , redirect , url_for , flash , request, jsonify)
 from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm
 from flask_login import current_user , login_user
 from food_app.utils import login_required
+import random
 #decorator for authentification
-
+decoy=["Burger King ", "Mc Donal","lacalebasse", "some rst","supoer"]
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -73,3 +74,12 @@ def signup():
 @app.route('/forgot_password')
 def forgot_password():
     return render_template('forgot_password.html')
+
+
+"""Api call"""
+@app.route('/api/search' , methods=['GET'])
+def search_end_point():
+    content = request.args.get('content', 0, type=str)
+    city = request.args.get('city', 0, type=str)
+    sending=random.choice(decoy)
+    return jsonify([sending])
