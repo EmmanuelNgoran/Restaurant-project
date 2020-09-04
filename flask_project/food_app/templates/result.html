@@ -9,25 +9,10 @@
 {% block content %}
 
 <!-- navbar -->
-<!-- A grey horizontal navbar that becomes vertical on small screens -->
-<!-- <nav class="navbar navbar-expand-sm custom"> -->
+<nav class="navbar-custom">
 
   <!-- Brand -->
- <!-- <a class="navbar-brand mr-auto" href="\">exotic</a> -->
-
- <!-- Links -->
-<!--  <ul class="navbar-nav">
-   <li class="nav-item">
-       <a class="nav-link" href="\login">Login</a>
-   </li>
-   <li class="nav-item">
-       <a class="nav-link" href="\signup">Signup</a>
-   </li>
- </ul>
-
-</nav> -->
-
-<nav class="navbar custom">
+  <a class="navbar-brand mr-auto" href="\">exotic</a>
 
   <a href="#" class="toggle-button">
     <span class="bar"></span>
@@ -35,112 +20,216 @@
     <span class="bar"></span>
   </a>
 
-<!-- Login form -->
-<div class="navbar-links">
-  <ul>
-    <li><a href="\login">Login</a></li>
-    <li><a href="\signup">Signup</a></li>
-  </ul>
-</div>
+  <!-- Login form -->
+  <div class="navbar-links">
+    <ul>
+      <li><a href="\login">Login</a></li>
+      <li><a href="\signup">Signup</a></li>
+    </ul>
+  </div>
 
 </nav>
- 
-<div class="container ">
- <div class="row" style="margin-top:20px;">
-   <h1> African Restaurant in your area </h1>
- </div>
 
-<div class="row">
-  <div class="col-md-4">
-    <div class="form-group">
-      <label id="filter_content">Filter by:</label>
-      <label class="cuisine_text">Cuisine</label>
-      <div class="dropdown">
-        <button class="btn btn-secondary btn-lg dropdown-toggle cuisine_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          All 
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">African</a>
-          <a class="dropdown-item" href="#">European</a>
-          <a class="dropdown-item" href="#">Asian</a>
-        </div>
-      </div>
-      <label class="price_text">Price</label>
-    <div class="dropdown">
-      <button class="btn btn-secondary btn-lg dropdown-toggle price_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        $$$ 
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">$15 - $20</a>
-        <a class="dropdown-item" href="#">$21 - $39</a>
-        <a class="dropdown-item" href="#">$40 - $50</a>
-      </div>
-    </div>
-    <label class="other_text">Other</label>
-    <div class="dropdown">
-      <button class="btn btn-secondary btn-lg dropdown-toggle other_dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        All 
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">African</a>
-        <a class="dropdown-item" href="#">European</a>
-        <a class="dropdown-item" href="#">Asian</a>
-      </div>
-    </div>
-    <label class="dist_text">Distance</label>
-    <div class="slidecontainer">
-      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      <p class="dist">0- <span id="demo"></span>km</p>
-    </div>
+<div class="container ">
+
+  <div class="row" >
+    <div class="col">
+      <button type="button" class="btn btn-info btn-mobile">Filter</button>
     </div>
     
-  </div>
-  <div class="col-md-8">
-    <div class="card flex-row flex-wrap">
-      <div class="card-header border-0">
-          <img class="card-img-top" src="../static/images/food.jpg" alt="Card image cap">
+
+    <div class="col-lg-3" id="filter">
+
+      <hr style="margin-top: 1rem; margin-bottom: 0rem;" id="h_row">
+
+      <div class="row" id="filter_by">
+        <h1 style="font-size: 128%; margin-left: 15px;"> Filter by: </h1>
       </div>
-      <div class="card-block px-2">
-        <h5 class="card-title">La calebasse</h5>
-        <div class="square"><div class="rating_content">4.2</div></div>
-        <div class="rating-score">110 ratings</div>
-        <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
-        <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
-        <address> Quebec , Rougemont , 741 Rue la fayette </address>
+
+      <hr id="h_row">
+
+      <div class="row">
+        <h1 style="font-size: 128%; margin-left: 15px;"> Cuisine </h1>
       </div>
-      <div class="card-footer w-100 text-icon">
-        <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
-        <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+
+      <div class="row">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <li><a href="#">African</a></li>
+            <li><a href="#">European</a></li>
+            <li><a href="#">Asian</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  
-    <div class="card flex-row flex-wrap mt-4">
-      <div class="card-header border-0">
-          <img class="card-img-top" src="../static/images/food5.jpg" alt="Card image cap">
+
+      <div class="row">
+        <h1 style="font-size: 128%; margin-left: 15px;"> Price </h1>
       </div>
-      <div class="card-block px-2">
-        <h5 class="card-title">La calebasse</h5>
-        <div class="square"><div class="rating_content">4.2</div></div>
-        <div class="rating-score">110 ratings</div>
-        <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
-        <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
-        <address> Quebec , Rougemont , 741 Rue la fayette </address>
+
+      <div class="row">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">15$ 
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <li><a href="#">25$</a></li>
+            <li><a href="#">60$</a></li>
+            <li><a href="#">15$</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="card-footer w-100 text-icon">
-        <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
-        <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+
+      <div class="row">
+        <h1 style="font-size: 128%; margin-left: 15px;"> Other </h1>
       </div>
-    </div>
-  
-  </div>
-</div>
+
+      <div class="row">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Other 
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <li><a href="#">Random</a></li>
+            <li><a href="#">Random</a></li>
+            <li><a href="#">Random</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <h1 style="font-size: 128%; margin-left: 15px; margin-top: 1.875rem;"> Distance </h1>
+      </div>
+
+      <div class="row">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <p class="dist">0- <span id="demo"></span>km</p>
+      </div>
+
+      <div class="row">
+        <button type="button" class="btn btn-primary">Apply filter</button>
+      </div>
+
+      </div>
 
 
+    <div class="col-lg-8 col-md-12 col-sm-12">
+
+      <h1> African Restaurant in your area </h1>
+
+      <div class="card flex-row flex-wrap">
+        <div class="card-header border-0">
+          <img class="card-img-top" src="../static/images/rezfood.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8">
+              <h5 class="card-title">La calebasse</h5>
+              <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+              <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+              <address> Quebec , Rougemont , 741 Rue la fayette </address>
+            </div>
+            <div class="col-4">
+              <div class="square">
+                <div class="rating_content">4.2</div>
+              </div>
+              <div class="rating-score">110 ratings</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer w-100 text-icon">
+          <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
+          <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+        </div>
+      </div>
+
+      <div class="card basic">
+        <div class="card-header border-0">
+          <img class="card-img-top" src="../static/images/rezfood.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8">
+              <h5 class="card-title">La calebasse</h5>
+              <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+              <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+              <address> Quebec , Rougemont , 741 Rue la fayette </address>
+            </div>
+            <div class="col-4">
+              <div class="square">
+                <div class="rating_content">4.2</div>
+              </div>
+              <div class="rating-score">110 ratings</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer w-100 text-icon">
+          <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
+          <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+        </div>
+      </div>
+
+      <div class="card flex-row flex-wrap mt-4">
+        <div class="card-header border-0">
+          <img class="card-img-top" src="../static/images/rezfood.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8">
+              <h5 class="card-title">La calebasse</h5>
+              <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+              <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+              <address> Quebec , Rougemont , 741 Rue la fayette </address>
+            </div>
+            <div class="col-4">
+              <div class="square">
+                <div class="rating_content">4.2</div>
+              </div>
+              <div class="rating-score">110 ratings</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer w-100 text-icon">
+          <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
+          <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+        </div>
+      </div>
+
+      <div class="card basic mt-4">
+        <div class="card-header border-0">
+          <img class="card-img-top" src="../static/images/rezfood.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8">
+              <h5 class="card-title">La calebasse</h5>
+              <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+              <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+              <address> Quebec , Rougemont , 741 Rue la fayette </address>
+            </div>
+            <div class="col-4">
+              <div class="square">
+                <div class="rating_content">4.2</div>
+              </div>
+              <div class="rating-score">110 ratings</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer w-100 text-icon">
+          <a href="menu"> <i class="fa fa-cutlery fa-lg">View menu</i></a>
+          <a href="call"> <i class="fa fa-phone fa-lg">Call</i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 </div>
 
 {% endblock content %}
-  
+
 {% block  script %}
-  <script src="../static/js/result.js"></script>
+<script src="../static/js/result.js"></script>
 {% endblock script  %}

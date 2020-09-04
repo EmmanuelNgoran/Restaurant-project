@@ -5,3 +5,32 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
+
+/* Responsive mobile navbar */
+
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+})
+
+// Filter dropdown
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+// Filter button
+
+let filter_cont = document.querySelector("#filter");
+let btn = document.querySelector(".btn-mobile");
+
+btn.addEventListener("click",function(){
+  filter_cont.classList.toggle("active");
+})

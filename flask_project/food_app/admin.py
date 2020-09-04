@@ -57,7 +57,7 @@ class MyAdminIndexView(AdminIndexView):
 
     @expose('/register/', methods=('GET', 'POST'))
     def register_view(self):
-        form = RegistrationForm()
+        form = UserRegistrationForm()
         if form.validate_on_submit():
             user=User(username=form.username.data,email=form.email.data)
             user.set_password(form.password.data)
