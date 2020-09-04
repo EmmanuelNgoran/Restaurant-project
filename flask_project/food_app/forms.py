@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,  SubmitField , TextAreaField , PasswordField
+from wtforms import StringField,  SubmitField , TextAreaField , PasswordField , SelectField
 from wtforms.validators import DataRequired, Length, EqualTo ,Email, ValidationError
 from food_app.models import User
 from food_app import db
+from food_app.utils import CITY,COUNTRY
 
 class SearchForm(FlaskForm):
     cuisine_string = StringField('cuisine',
@@ -15,15 +16,17 @@ class SearchForm(FlaskForm):
 
 
 class RestaurantCreationForm(FlaskForm):
+
+    name=StringField("Name" , validators=[DataRequired(), Length(min=4 , max=35)])
     
     description = TextAreaField('Description',
                            validators=[DataRequired(), Length(min=2, max=200)])
     street_address = StringField('Your address',
-                           validators=[DataRequired(), Length(min=2, max=20)])
-    city = StringField('City',
-                           validators=[DataRequired(), Length(min=2, max=20)])
-    state = StringField('State',
-                           validators=[DataRequired(), Length(min=2, max=20)])
+                           validators=[DataRequired(), Length(min=2, max=50)])
+    city = SelectField('City',
+                           choices=CITY)
+    """state = StringField('State',
+                           validators=[DataRequired(), Length(min=2, max=20)])"""
     email = StringField('Email',
                         validators=[DataRequired() , Email()])
     average_price = StringField('Average Price',
@@ -33,7 +36,7 @@ class RestaurantCreationForm(FlaskForm):
     phone_number = StringField("Phone number" , validators=[DataRequired() , Length(min=8 , max=10)])
     
     
-    submit = SubmitField('SAVE')
+    #submit = SubmitField('SAVE')
 
 class UserRegistrationForm(FlaskForm):
     
@@ -61,9 +64,9 @@ class UserLoginForm(FlaskForm):
     def validate_email(self, email):
         user = self.get_user()
         if user is None:
-            raise validators.ValidationError('Invalid user')
+            raise ValidationError('Invalid user')
         if not user.is_password(self.password.data):
-            raise validators.ValidationError('Invalid password')
+            raise ValidationError('Invalid password')
 
     def get_user(self):
         return db.session.query(User).filter_by(email=self.email.data).first()

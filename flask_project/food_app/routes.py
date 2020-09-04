@@ -1,16 +1,12 @@
+from functools import wraps
 from food_app import app , db
 from food_app.models import *
 from flask import render_template , redirect , url_for , flash
 from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm
 from flask_login import current_user , login_user
-
+from food_app.utils import login_required
 #decorator for authentification
-def is_authenticated(func,*args,**kwargs):
-    def wrapper(*args,**kwargs):
-        if current_user.is_authenticated:
-            return redirect(url_for('home'))
-        func(*args,**kwargs)
-    return wrapper
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -20,12 +16,21 @@ def home():
         #return redirect(url_for('home'))
     return render_template('index.html', title='Home' , form=form)
 
-
-@app.route('/resto',methods=['GET', 'POST'])
-def restaurant():
+@login_required
+@app.route('/resto/create',methods=['GET', 'POST'])
+def create_restaurant():
     form = RestaurantCreationForm()
-    if form.validate_on_submit():
-        pass
+    return render_template('create_restaurant.html', title='Create Restaurant' , form=form)
+
+@login_required
+@app.route('/resto/update',methods=['GET', 'POST'])
+def restaurant_view():
+    form = RestaurantCreationForm()
+    is_valid =form.validate_on_submit()
+    #errors=[ (f.label,f.errors) for f in form]
+    print(f"is valid {is_valid}")
+    if is_valid:
+        app.logger.info("Success on creating restaurant")
     return render_template('restaurant.html', title='Home' , form=form)
 
 @app.route('/result')

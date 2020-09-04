@@ -72,11 +72,50 @@
     padding: 10px 15px;
     margin-top: 10px;
     border-radius: 3px;
+    width:2rem;
+    height: 2rem;
+
 }
 #rating-numbers{
     margin-top: 5px;
     display: block;
 }
+
+/**********Menu**********/
+div#accordion .card{
+    margin-bottom: 15px;
+}
+div#collapseOne .row img{
+    width: 100%;
+     height: auto;
+ }
+ div#collapseOne .row{
+     padding: 15px;
+ }
+div#collapseOne .row h3{
+     text-align: center;
+ }
+
+/**********List dish*********/
+.dish_card{
+    padding:10px;
+}
+div.img_dish img{
+    width: 100%;
+    height: auto;
+}
+.dish_desc {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+.dish_body p{
+    text-align: right;
+}
+.dish_body h5{
+    text-align: right;
+    font-size: 1.2rem;
+}
+
 
 @media screen and (max-width: 600px) {
     .details-form {
