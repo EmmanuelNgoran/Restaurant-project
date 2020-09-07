@@ -73,3 +73,8 @@ def signup():
 @app.route('/forgot_password')
 def forgot_password():
     return render_template('forgot_password.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')

@@ -495,51 +495,50 @@ a:-webkit-any-link {
     display: block;
   }
 
-  .flex-wrap{
-    display: none;
-  }
-
   .container h1 {
     font-size: 130%;
-}
+  }
 
-.text-muted {
+  .text-muted {
   font-size: 90%;
-}
+  }
 
-div.card-footer.w-100 i{
+  div.card-footer.w-100 i{
   padding-right: 25px;
-}
+  }
 
-#filter{
+  #filter{
   display:none;
-}
+  }
 
-.btn-mobile{
-display:block;
-}
+  .btn-mobile{
+  display:block;
+  }
 
-#filter.active{
+  #filter.active{
   background-color: #dccece;
   display:block;
   position:absolute;
   top:100px;
   z-index: 9999;
   height:26rem;
-
-}
+  }
 
 #filter_by{
   display: none;
-}
+  }
 
 #h_row{
   display: none;
-}
+  }
 
 .slider{
   width: 10rem;
-}
+  }
+
+.flex-wrap{
+  display: none;
+  }
 
 }
 
