@@ -86,8 +86,11 @@
         </div>
         <div class="search_restaurant">
           <input type="text" class="search_restaurant_input" placeholder="Search for restaurant name or cuisine ">
+          <div id="result_opt">
+          </div>
         </div>
-        <div class="submit_search" onclick="location.href='https://google.com'; ">
+        <div id="md_btn_submit" class="submit_search" >
+          <!--onclick="location.href='https://google.com'; "-->
           {{ form.hidden_tag() }}
           <i class="rbbb40-1 MxLSp" color="#FFFFFF" size="16"><svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF"
               width="16" height="16" viewBox="0 0 20 20" aria-labelledby="icon-svg-title-Search icon-svg-desc-Search"

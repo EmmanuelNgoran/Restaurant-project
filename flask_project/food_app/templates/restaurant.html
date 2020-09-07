@@ -11,15 +11,18 @@
                     Image restaurant
 
                 </div>
-                <button class="add-photo btn">
-                    <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
-                            viewBox="0 0 488.455 488.455" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="m244.236 137.374c-67.335 0-122.118 54.783-122.118 122.118s54.784 122.118 122.118 122.118 122.118-54.783 122.118-122.118-54.783-122.118-122.118-122.118zm0 213.706c-50.505 0-91.588-41.083-91.588-91.588s41.083-91.588 91.588-91.588 91.588 41.083 91.588 91.588-41.083 91.588-91.588 91.588z" />
-                            <path
-                                d="m488.292 137.292c-.015-25.214-20.572-45.733-45.794-45.733h-66.888l-26.326-52.603c-2.594-5.171-7.871-8.434-13.655-8.434h-183.176c-5.784 0-11.076 3.263-13.655 8.434l-26.296 52.618-66.782.089c-25.208.045-45.72 20.58-45.72 45.779v274.714c0 25.244 20.542 45.778 45.794 45.778h396.867c25.252 0 45.794-20.55 45.794-45.808zm-45.63 290.122h-396.867c-8.422 0-15.265-6.84-15.265-15.259v-274.714c0-8.405 6.842-15.244 15.235-15.259l76.204-.104c5.784-.015 11.061-3.278 13.64-8.434l26.281-52.604h164.304l26.326 52.603c2.594 5.171 7.871 8.434 13.655 8.434h76.324c8.408 0 15.444 6.84 15.444 15.244v274.819c-.001 8.419-6.859 15.274-15.281 15.274z" />
-                        </svg></i>Edit
-                </button>
+                <form class="submit_photo" action="/photo_up" method="post">
+                    <button class="add-photo btn" id="photo_up_btn">
+                        <input id="fileInput" type="file" style="display: none;"/>
+                        <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
+                                viewBox="0 0 488.455 488.455" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m244.236 137.374c-67.335 0-122.118 54.783-122.118 122.118s54.784 122.118 122.118 122.118 122.118-54.783 122.118-122.118-54.783-122.118-122.118-122.118zm0 213.706c-50.505 0-91.588-41.083-91.588-91.588s41.083-91.588 91.588-91.588 91.588 41.083 91.588 91.588-41.083 91.588-91.588 91.588z" />
+                                <path
+                                    d="m488.292 137.292c-.015-25.214-20.572-45.733-45.794-45.733h-66.888l-26.326-52.603c-2.594-5.171-7.871-8.434-13.655-8.434h-183.176c-5.784 0-11.076 3.263-13.655 8.434l-26.296 52.618-66.782.089c-25.208.045-45.72 20.58-45.72 45.779v274.714c0 25.244 20.542 45.778 45.794 45.778h396.867c25.252 0 45.794-20.55 45.794-45.808zm-45.63 290.122h-396.867c-8.422 0-15.265-6.84-15.265-15.259v-274.714c0-8.405 6.842-15.244 15.235-15.259l76.204-.104c5.784-.015 11.061-3.278 13.64-8.434l26.281-52.604h164.304l26.326 52.603c2.594 5.171 7.871 8.434 13.655 8.434h76.324c8.408 0 15.444 6.84 15.444 15.244v274.819c-.001 8.419-6.859 15.274-15.281 15.274z" />
+                            </svg></i>Edit
+                    </button>
+                </form>
             </div>
             <div class="col-lg-5">
                 <div class="row mb-2">
@@ -48,8 +51,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div  class="col font-weight-bold">
+        <div class="row pt-2">
+            <div  class="col-md font-weight-bold">
                 <div id="title-resto">
                     Restaurant Name<i class="mr-8">
                         <svg class="Icon_material_edit" viewBox="4.5 4.496 27.004 27.004" width="27" height="27">
@@ -79,11 +82,11 @@
             </div>
             <div class="col-auto">
                 <div class="row justify-content-end">
-                    <div id="rating" class="font-weight-bold col">
+                    <div id="rating" class="font-weight-bold col-md-auto">
                         4.2
                     </div> 
                 </div>
-                <div class="row">
+                <div class="row justify-content-end">
                     <p id="rating-numbers">110 ratings</p>
                 </div>
                 
@@ -92,7 +95,7 @@
         
     </div>
     {% include 'resto_form.html' %}
-    <div id="accordion">
+    <div id="accordion mt-2" style="width: 70%;">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
@@ -128,7 +131,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn dropdown-toggle collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Collapsible Group Item #2
               </button>
             </h5>
@@ -190,13 +193,55 @@
             </h5>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <div class="row">
+                <div class="col">
+                    <div class="row dish_card">
+                        <div class="col-auto img_dish">
+                            <img src="../static/images/user_photo_id.png" alt="plat 1">
+                        </div>
+                        <div class="col" >
+                            <h5>
+                               Sorin Siborn
+                            </h5>
+                            <p class="dish_desc">
+                               10 reviews  10 followers
+                            </p>
+                        </div>
+                        <div class="col-auto mr-auto">
+                            <button type="button" class="btn btn-success">Follow</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                Lorem ipsum dolor sit amet, 
+                                consetetur sadipscing elitr, sed diam nonumy 
+                                eirmod tempor invidunt ut labore et dolore magna 
+                                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-flex">
+                            <div><i class='fa fa-thumbs-up' style='font-size:24px'></i>Like</div>
+                            <div><i class='fa fa-comment-o' style='font-size:24px'></i>Comment</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
           </div>
         </div>
       </div>
 </div>
+<script>
+    document.getElementById('photo_up_btn').addEventListener('click', () => {
+        document.getElementById('fileInput').click()
+      })
+</script>
 
 
 {% endblock content %}

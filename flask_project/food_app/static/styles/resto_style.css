@@ -22,11 +22,13 @@
     text-align: center;
 }
 
-.add-photo{
-    padding:15px 24px;
+form.submit_photo{
     position: absolute;
     left: 25px;
     bottom: 10px;
+}
+.add-photo{
+    padding:15px 24px;
     background-color:rgb(189, 189, 189);
     color: white;
     border-radius: 3px;
@@ -70,14 +72,10 @@
     color:white;
     background-color: #dfd117;
     padding: 10px 15px;
-    margin-top: 10px;
     border-radius: 3px;
-    width:2rem;
-    height: 2rem;
 
 }
 #rating-numbers{
-    margin-top: 5px;
     display: block;
 }
 
