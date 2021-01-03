@@ -32,6 +32,26 @@ form.submit_photo{
     background-color:rgb(189, 189, 189);
     color: white;
     border-radius: 3px;
+    z-index: 9999;
+}
+
+.popup{
+    width: 60%;
+    height: 400px;
+    border-radius: 8px;
+    background-color: rgb(236, 233, 233);
+    position: absolute;
+    margin: 0 auto;
+    left: 50%;
+    top: 10%;
+    z-index: 99;
+    display: none;
+
+
+}
+.image_preview{
+    border: white 2px dotted;
+    min-height: 100px;
 }
 #camera-logo{
     display: inline-block;

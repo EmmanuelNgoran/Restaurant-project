@@ -42,16 +42,16 @@ class ImageView(MyModelView):
         return Markup('<img src="%s">' % (url_for('static',
                                                  filename='images/'+form.thumbgen_filename(model.photo_path)))
                                                  )
-
     column_formatters = {
-        'photo_path': _list_thumbnail
+       'photo_path': _list_thumbnail
     }
+
 
     form_extra_fields = {
-        'photo_path': form.ImageUploadField('ImageItem',
-                                      base_path=file_path,
-                                      thumbnail_size=(100, 100, True))
-    }
+            'photo_path': form.ImageUploadField('ImageItem',
+                                        base_path=file_path,
+                                        thumbnail_size=(100, 100, True))
+}
 # Create customized index view class that handles login & registration
 class MyAdminIndexView(AdminIndexView):
 
@@ -110,6 +110,4 @@ admin.add_view(MyModelView(Dish , db.session))
 admin.add_view(MyModelView(Address , db.session))
 admin.add_view(MyModelView(Menu , db.session))
 admin.add_view(ImageView(ImageItem,db.session))
-
-
-
+admin.add_view(MyModelView(Speciality,db.session))
