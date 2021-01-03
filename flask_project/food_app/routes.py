@@ -75,15 +75,24 @@ def signup():
 def forgot_password():
     return render_template('forgot_password.html')
 
-
+def w_search(content):
+    results = Restaurant.query.msearch(content,fields=['name','description']).all()
+    return results
 
 """Api call"""
 @app.route('/api/search' , methods=['GET'])
 def search_end_point():
+    response=" "
     content = request.args.get('content', 0, type=str)
     city = request.args.get('city', 0, type=str)
-    sending=random.choice(decoy)
-    return jsonify([sending])
+
+    if len(content) > 0:
+        res = w_search(content)
+        response=[ ob.name for ob in res]    
+
+    return jsonify(response)
+
+
     
 @app.route('/about')
 def about():

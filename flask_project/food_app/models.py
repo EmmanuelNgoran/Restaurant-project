@@ -8,6 +8,10 @@ from datetime import datetime
 by running db stamp head"""
 
 class Restaurant(db.Model):
+
+    __searchable__=['description','name']
+
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), nullable=False)
     description = db.Column(db.String(200), nullable=True)

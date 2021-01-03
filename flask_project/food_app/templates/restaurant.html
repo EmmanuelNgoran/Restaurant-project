@@ -8,12 +8,12 @@
         <div class="row mb-6">
             <div class="col-lg-7" style="position: relative;">
                 <div id="placeholder" style="position: relative;">
-                    Image restaurant
+                  Image Restaurant
 
                 </div>
-                <form class="submit_photo" action="/photo_up" method="post">
-                    <button class="add-photo btn" id="photo_up_btn">
-                        <input id="fileInput" type="file" style="display: none;"/>
+                <form class="submit_photo" id="photoSubm">
+                    <div class="add-photo btn" id="photo_up_btn">
+                        <input id="fileInput" type="file" style="display: none;" accept="image/png, image/jpeg"/>
                         <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
                                 viewBox="0 0 488.455 488.455" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -21,8 +21,32 @@
                                 <path
                                     d="m488.292 137.292c-.015-25.214-20.572-45.733-45.794-45.733h-66.888l-26.326-52.603c-2.594-5.171-7.871-8.434-13.655-8.434h-183.176c-5.784 0-11.076 3.263-13.655 8.434l-26.296 52.618-66.782.089c-25.208.045-45.72 20.58-45.72 45.779v274.714c0 25.244 20.542 45.778 45.794 45.778h396.867c25.252 0 45.794-20.55 45.794-45.808zm-45.63 290.122h-396.867c-8.422 0-15.265-6.84-15.265-15.259v-274.714c0-8.405 6.842-15.244 15.235-15.259l76.204-.104c5.784-.015 11.061-3.278 13.64-8.434l26.281-52.604h164.304l26.326 52.603c2.594 5.171 7.871 8.434 13.655 8.434h76.324c8.408 0 15.444 6.84 15.444 15.244v274.819c-.001 8.419-6.859 15.274-15.281 15.274z" />
                             </svg></i>Edit
-                    </button>
+                    </div>
+
+
                 </form>
+                <div class="popup" id='popup'>
+                    <div class="container">
+                        <div class="col align-self-center">
+                            <div class="row">
+                                <h2 class="pt-2">
+                                    Image Upload
+                                </h2>
+                            </div>
+                            <div class="row">
+                                <div class="image_preview" id="imagePreview">
+                                    <img  class="img_preview" src(unknown) alt="Image Preview" style="max-width: 200px;">
+                                    <span class="image_preview_text d-flex">Image preview</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <button type="button" class="btn btn-dark">Validate</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-5">
                 <div class="row mb-2">
@@ -52,9 +76,11 @@
             </div>
         </div>
         <div class="row pt-2">
-            <div  class="col-md font-weight-bold">
+            <div class="col-md font-weight-bold">
                 <div id="title-resto">
-                    Restaurant Name<i class="mr-8">
+                    <span id="resto_name" > Restaurant Name</span>
+                    <input type="text" id="resto_name_inp" style="display: none;">
+                    <i class="mr-8">
                         <svg class="Icon_material_edit" viewBox="4.5 4.496 27.004 27.004" width="27" height="27">
                             <path fill="rgba(0,0,0,1)" id="Icon_material_edit"
                                 d="M 4.5 25.875 L 4.5 31.5 L 10.125 31.5 L 26.71500015258789 14.90999984741211 L 21.09000015258789 9.284999847412109 L 4.5 25.875 Z M 31.06500053405762 10.5600004196167 C 31.64999961853027 9.975000381469727 31.64999961853027 9.030000686645508 31.06500053405762 8.445000648498535 L 27.55500030517578 4.935000419616699 C 26.97000122070313 4.350000381469727 26.02499961853027 4.350000381469727 25.44000053405762 4.935000419616699 L 22.69499969482422 7.680000305175781 L 28.31999969482422 13.30500030517578 L 31.06499862670898 10.5600004196167 Z">
@@ -84,163 +110,197 @@
                 <div class="row justify-content-end">
                     <div id="rating" class="font-weight-bold col-md-auto">
                         4.2
-                    </div> 
+                    </div>
                 </div>
                 <div class="row justify-content-end">
                     <p id="rating-numbers">110 ratings</p>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
     {% include 'resto_form.html' %}
     <div id="accordion mt-2" style="width: 70%;">
         <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
-              </button>
-            </h5>
-          </div>
-      
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="../static/images/menu_1.png" alt="Menu 1">
-                    <h3>
-                        Menu Salad
-                    </h3>
-                </div>
-                <div class="col-md-4">
-                    <img src="../static/images/menu_1.png" alt="Menu 1">
-                    <h3>
-                        Menu Main
-                    </h3>
-                </div>
-                <div class="col-md-4">
-                    <img src="../static/images/menu_1.png" alt="Menu 1">
-                    <h3>
-                        Menu Dessert
-                    </h3>
-                </div>
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Collapsible Group Item #1
+                    </button>
+                </h5>
             </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn dropdown-toggle collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" >
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row dish_card">
-                        <div class="col img_dish">
-                            <img src="../static/images/plat_1.png" alt="plat 1">
-                        </div>
-                        <div class="col dish_body" >
-                            <h5>
-                                Soupe de tomate fraiche
-                            </h5>
-                            <p class="dish_desc">
-                                Laitue romaine, croûtons à l'ail,
-                                 lardons, copeaux de parmesan et
-                                  vinaigrette maison / Romaine lettuce
-                                  , garlic croutons, bacon
-                            </p>
-                            <p class="dish_price">
-                                20$
-                            </p>
-                        </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="../static/images/menu_1.png" alt="Menu 1">
+                        <h3>
+                            Menu Salad
+                        </h3>
                     </div>
-                    
-                </div>
-                <div class="col-md-6">
-                    <div class="row dish_card">
-                        <div class="col img_dish">
-                            <img src="../static/images/plat_1.png" alt="plat 1">
-                        </div>
-                        <div class="col dish_body" >
-                            <h5>
-                                Soupe de tomate fraiche
-                            </h5>
-                            <p class="dish_desc">
-                                Laitue romaine, croûtons à l'ail,
-                                 lardons, copeaux de parmesan et
-                                  vinaigrette maison / Romaine lettuce
-                                  , garlic croutons, bacon
-                            </p>
-                            <p class="dish_price">
-                                20$
-                            </p>
-                        </div>
+                    <div class="col-md-4">
+                        <img src="../static/images/menu_1.png" alt="Menu 1">
+                        <h3>
+                            Menu Main
+                        </h3>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../static/images/menu_1.png" alt="Menu 1">
+                        <h3>
+                            Menu Dessert
+                        </h3>
                     </div>
                 </div>
             </div>
-          </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-            <div class="row">
-                <div class="col">
-                    <div class="row dish_card">
-                        <div class="col-auto img_dish">
-                            <img src="../static/images/user_photo_id.png" alt="plat 1">
-                        </div>
-                        <div class="col" >
-                            <h5>
-                               Sorin Siborn
-                            </h5>
-                            <p class="dish_desc">
-                               10 reviews  10 followers
-                            </p>
-                        </div>
-                        <div class="col-auto mr-auto">
-                            <button type="button" class="btn btn-success">Follow</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>
-                                Lorem ipsum dolor sit amet, 
-                                consetetur sadipscing elitr, sed diam nonumy 
-                                eirmod tempor invidunt ut labore et dolore magna 
-                                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="d-flex">
-                            <div><i class='fa fa-thumbs-up' style='font-size:24px'></i>Like</div>
-                            <div><i class='fa fa-comment-o' style='font-size:24px'></i>Comment</div>
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn dropdown-toggle collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Collapsible Group Item #2
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row dish_card">
+                            <div class="col img_dish">
+                                <img src="../static/images/plat_1.png" alt="plat 1">
                             </div>
-                            
+                            <div class="col dish_body">
+                                <h5>
+                                    Soupe de tomate fraiche
+                                </h5>
+                                <p class="dish_desc">
+                                    Laitue romaine, croûtons à l'ail,
+                                    lardons, copeaux de parmesan et
+                                    vinaigrette maison / Romaine lettuce
+                                    , garlic croutons, bacon
+                                </p>
+                                <p class="dish_price">
+                                    20$
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row dish_card">
+                            <div class="col img_dish">
+                                <img src="../static/images/plat_1.png" alt="plat 1">
+                            </div>
+                            <div class="col dish_body">
+                                <h5>
+                                    Soupe de tomate fraiche
+                                </h5>
+                                <p class="dish_desc">
+                                    Laitue romaine, croûtons à l'ail,
+                                    lardons, copeaux de parmesan et
+                                    vinaigrette maison / Romaine lettuce
+                                    , garlic croutons, bacon
+                                </p>
+                                <p class="dish_price">
+                                    20$
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Collapsible Group Item #3
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                <div class="row">
+                    <div class="col">
+                        <div class="row dish_card">
+                            <div class="col-auto img_dish">
+                                <img src="../static/images/user_photo_id.png" alt="plat 1">
+                            </div>
+                            <div class="col">
+                                <h5>
+                                    Sorin Siborn
+                                </h5>
+                                <p class="dish_desc">
+                                    10 reviews 10 followers
+                                </p>
+                            </div>
+                            <div class="col-auto mr-auto">
+                                <button type="button" class="btn btn-success">Follow</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Lorem ipsum dolor sit amet,
+                                    consetetur sadipscing elitr, sed diam nonumy
+                                    eirmod tempor invidunt ut labore et dolore magna
+                                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex">
+                                    <div><i class='fa fa-thumbs-up' style='font-size:24px'></i>Like</div>
+                                    <div><i class='fa fa-comment-o' style='font-size:24px'></i>Comment</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
-    document.getElementById('photo_up_btn').addEventListener('click', () => {
-        document.getElementById('fileInput').click()
-      })
+
+const myForm = document.getElementById("photoSubm");
+const photo_btn = document.getElementById('photo_up_btn');
+const popup = document.getElementById('popup');
+const inpFile_photo=document.getElementById("fileInput");
+const prev_container=document.getElementById("imagePreview");
+const image_prev=prev_container.querySelector(".img_preview");
+
+
+
+photo_btn.addEventListener('click', () => {
+    document.getElementById('fileInput').click();
+})
+
+inpFile_photo.addEventListener("change",function(){
+    const file = this.files[0];
+    if (file){
+        const reader= new FileReader();
+
+        reader.addEventListener("load",function(){
+            image_prev.setAttribute("src",this.result);
+            popup.style.display = 'block';
+        })
+
+        reader.readAsDataURL(file)
+    }
+    
+
+})
+
+myForm.addEventListener('submit', e => {
+    e.preventDefault;
+})
+
 </script>
 
 
