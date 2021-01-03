@@ -1,21 +1,16 @@
-{% extends "base.html" %}
+{% extends "nav_bar_base.html" %}
 
 {% block stylesheet %}
+{{ super() }}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..\static\styles\login.css">
 {% endblock stylesheet %}
 
-{% block title %} Login{% endblock %}
+{% block title %} Login {% endblock %}
 
 {% block content %}
-
-<!-- navbar -->
-<!-- A grey horizontal navbar that becomes vertical on small screens -->
-<nav class="navbar navbar-expand-sm custom">
-    <!-- Brand -->
-    <a class="navbar-brand mr-auto" href="/"> exotic </a>
-</nav>
+{{ super() }}
 
 <div id="logreg-forms">
     <form class="form-signin" method="POST", action="">
@@ -63,5 +58,5 @@
 {% endblock content %}
 
 {% block  script %}
-
+{{ super() }}
 {% endblock script %}

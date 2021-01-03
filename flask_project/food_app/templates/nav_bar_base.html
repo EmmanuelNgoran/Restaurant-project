@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="..\static\styles\nav.css">
+{% endblock stylesheet %}
+
+{% block content %}
+<!-- navbar -->
+<nav class="navbar-custom">
+
+    <!-- Brand -->
+    <a class="navbar-brand mr-auto" href="\">exotic</a>
+  
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+  
+    <!-- Login form -->
+    <div class="navbar-links">
+      <ul>
+        <li><a href="\login">Login</a></li>
+        <li><a href="\signup">Signup</a></li>
+      </ul>
+    </div>
+  
+</nav>
+
+{% endblock content %}
+
+
+{% block  script %}
+<script src="../static/js/nav.js"></script>
+{% endblock script  %}

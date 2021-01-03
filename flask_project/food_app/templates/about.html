@@ -1,34 +1,15 @@
-{% extends "base.html" %}
+{% extends "nav_bar_base.html" %}
 
 {% block title %} About {% endblock %}
 
 {% block stylesheet %}
+{{ super() }}
 <link rel="stylesheet" type="text/css" href="..\static\styles\about.css">
 {% endblock stylesheet %}
 
 {% block content %}
 
-<!-- navbar -->
-<nav class="navbar-custom">
-
-  <!-- Brand -->
-  <a class="navbar-brand mr-auto" href="\">exotic</a>
-
-  <a href="#" class="toggle-button">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </a>
-
-  <!-- Login form -->
-  <div class="navbar-links">
-    <ul>
-      <li><a href="\login">Login</a></li>
-      <li><a href="\signup">Signup</a></li>
-    </ul>
-  </div>
-
-</nav>
+{{ super() }}
 
 <!-- Background image -->
 <div class="bg" >
@@ -46,11 +27,10 @@
 
             <h1>Description</h1>
 
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+            <p> Built in 2020, Exotic is a website that promotes and makes easy access to foreign foods. 
+                Our focus is on restaurants, food lovers, tourists and people who like exotic food. Exotic
+                wants to be a platform that gathers people around food. On exotic.io, you can search food 
+                by country, culture and name.      
             </p>
 
         </div>
@@ -58,12 +38,12 @@
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <h1>Mission</h1>
 
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <ul>
+                <li>Promote and make easy access to exotic food.</li>
+                <li>Gather people around food.</li>
+                <li>Centralize the sale of exotic food.</li>
+                <li>Encourage people to discover other culture food.</li>
+            </ul> 
 
         </div>
     </div>
@@ -81,10 +61,10 @@
                 <div class="col-8">
                     <div class="card-body">
                         <h5 class="card-title"> Cesar Angola </h5>
-                        <p> UI/UX designer & developer </p>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <p> cofounder & front end developer </p>
+                        <p>  Cesar Angola is a web developer and cofounder of Exotic. He contributes 
+                             to build the frond end of Exotic with HTML, CSS and JS.
+                             Besides working on Exotic, he likes watching football and going to the gym.
                         </p>
                     </div>
                 </div>
@@ -95,10 +75,10 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"> Cesar Angola </h5>
-                    <p> UI/UX designer & developer </p>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <p> cofounder & front end developer </p>
+                    <p> Cesar Angola is a web developer and cofounder of Exotic. He contributes 
+                        to build the frond end of exotic with HTML, CSS and JS.
+                        Besides working on Exotic, he likes watching football and going to the gym.
                     </p>
                 </div>
             </div>
@@ -141,5 +121,6 @@
 {% endblock content %}
 
 {% block  script %}
+{{ super() }}
 <script src="../static/js/about.js"></script>
 {% endblock script  %}

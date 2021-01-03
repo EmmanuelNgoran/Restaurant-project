@@ -1,34 +1,15 @@
-{% extends "base.html" %}
+{% extends "nav_bar_base.html" %}
 
 {% block title %} Result {% endblock %}
 
 {% block stylesheet %}
+{{ super() }}
 <link rel="stylesheet" type="text/css" href="..\static\styles\result.css">
 {% endblock stylesheet %}
 
 {% block content %}
 
-<!-- navbar -->
-<nav class="navbar-custom">
-
-  <!-- Brand -->
-  <a class="navbar-brand mr-auto" href="\">exotic</a>
-
-  <a href="#" class="toggle-button">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </a>
-
-  <!-- Login form -->
-  <div class="navbar-links">
-    <ul>
-      <li><a href="\login">Login</a></li>
-      <li><a href="\signup">Signup</a></li>
-    </ul>
-  </div>
-
-</nav>
+{{ super() }}
 
 <div class="container ">
 
@@ -231,5 +212,6 @@
 {% endblock content %}
 
 {% block  script %}
+{{ super() }}
 <script src="../static/js/result.js"></script>
 {% endblock script  %}
