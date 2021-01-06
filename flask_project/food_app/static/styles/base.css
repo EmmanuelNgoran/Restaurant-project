@@ -1,0 +1,22 @@
+:root {
+    --main-bg-color: #f8f6f6;
+    --searchButton-bg-color:#C32F10;
+    --gray-color:rgb(2, 207, 207);
+    --main-banner-color-overlay:rgba(112, 85, 9, 0.3);
+    --main-text-color:#E7E7E7;
+    --normal-text-color:#212529;
+  }
+  
+  body, html {
+      height: 100%;
+      font-family: "Roboto";
+  
+    }
+  /*********main style**********/
+  body {
+    background-color:var(--main-bg-color);
+    color:var(--normal-text-color);
+  }
+  .text-normal{
+    color:var(--normal-text-color);
+  }
