@@ -1,10 +1,12 @@
 from functools import wraps
-from food_app import app , db
+from food_app import app , db , current_resto
 from food_app.models import *
 from flask import (render_template , redirect , url_for , flash , request, jsonify)
-from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm
+from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm , RestaurantUpdateForm
 from flask_login import current_user , login_user
 from food_app.utils import login_required
+from markupsafe import escape
+
 import random
 #decorator for authentification
 decoy=["Burger King ", "Mc Donal","lacalebasse", "some rst","supoer"]
@@ -21,22 +23,43 @@ def home():
 @app.route('/resto/create',methods=['GET', 'POST'])
 def create_restaurant():
     form = RestaurantCreationForm()
+
+    if form.validate_on_submit():
+        resto= Restaurant(name=form.name.data , description=form.description.data,
+            telephone_number=form.phone_number.data , average_price=form.average_price.data)
+        address=Address(street_address=form.street_address.data, city=form.city.data)
+        resto.address=address
+        db.session.add(resto)
+        db.session.commit()
+        app.logger.info('Restaurant successfully created')
+        return redirect(url_for('home'))
     return render_template('create_restaurant.html', title='Create Restaurant' , form=form)
 
 @login_required
-@app.route('/resto/update',methods=['GET', 'POST'])
-def restaurant_view():
-    form = RestaurantCreationForm()
-    is_valid =form.validate_on_submit()
-    #errors=[ (f.label,f.errors) for f in form]
-    print(f"is valid {is_valid}")
-    if is_valid:
-        app.logger.info("Success on creating restaurant")
-    return render_template('restaurant.html', title='Home' , form=form)
+@app.route('/resto/update/<int:resto_id>',methods=['GET', 'POST'])
+def restaurant_view(resto_id):
+    id=escape(resto_id)
+    resto=Restaurant.query.filter_by(id=id).first()
+    current_resto=resto
+    form = RestaurantUpdateForm()
+    if form.validate_on_submit():
+        pass
+    if request.method == 'GET':
+        # to be changed -Add a method to encapsulate the 
+        #following lines
+        form.name.data=resto.name
+        form.description.data=resto.description
+        form.street_address.data=resto.address.street_address
+        form.phone_number.data =resto.telephone_number
+        form.average_price.data=resto.average_price
+
+
+    return render_template('restaurant.html', title='Home' , form=form , resto=resto)
 
 @app.route('/result')
 def result():
-    return render_template('result.html')
+    restaurants = Restaurant.query.all()
+    return render_template('result.html' , restaurants=restaurants)
 
 
 @app.route('/login' , methods=['GET', 'POST'])

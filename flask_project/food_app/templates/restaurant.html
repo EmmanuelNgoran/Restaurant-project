@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block stylesheet %}
-<link rel="stylesheet" type="text/css" href="..\static\styles\resto_style.css">
+<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='styles/resto_style.css') }}>
 {% endblock stylesheet %}
 {% block content %}
 <div class="container mt-4">
@@ -50,24 +50,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="row mb-2">
-                    <div class="col-6">
-                        <div id="sml-placeholder">
-                            image food
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div id="sml-placeholder">
-                            image food
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div id="sml-placeholder">
-                            image food
-                        </div>
-                    </div>
-                    <div class="col-6">
+                    <div class="col-12">
                         <div id="sml-placeholder">
                             image food
                         </div>
@@ -78,15 +61,7 @@
         <div class="row pt-2">
             <div class="col-md font-weight-bold">
                 <div id="title-resto">
-                    <span id="resto_name" > Restaurant Name</span>
-                    <input type="text" id="resto_name_inp" style="display: none;">
-                    <i class="mr-8">
-                        <svg class="Icon_material_edit" viewBox="4.5 4.496 27.004 27.004" width="27" height="27">
-                            <path fill="rgba(0,0,0,1)" id="Icon_material_edit"
-                                d="M 4.5 25.875 L 4.5 31.5 L 10.125 31.5 L 26.71500015258789 14.90999984741211 L 21.09000015258789 9.284999847412109 L 4.5 25.875 Z M 31.06500053405762 10.5600004196167 C 31.64999961853027 9.975000381469727 31.64999961853027 9.030000686645508 31.06500053405762 8.445000648498535 L 27.55500030517578 4.935000419616699 C 26.97000122070313 4.350000381469727 26.02499961853027 4.350000381469727 25.44000053405762 4.935000419616699 L 22.69499969482422 7.680000305175781 L 28.31999969482422 13.30500030517578 L 31.06499862670898 10.5600004196167 Z">
-                            </path>
-                        </svg>
-                    </i>
+                    <span id="resto_name" > {{ resto.name }}</span>
                 </div>
                 <div class="d-flex flex-row">
                     <div class="p-2"><i class="mr-2">
@@ -97,7 +72,7 @@
                                 <path
                                     d="m256 90c-49.626 0-90 40.374-90 90 0 49.309 39.717 90 90 90 50.903 0 90-41.233 90-90 0-49.626-40.374-90-90-90zm0 150.2c-33.257 0-60.2-27.033-60.2-60.2 0-33.084 27.116-60.2 60.2-60.2s60.1 27.116 60.1 60.2c0 32.683-26.316 60.2-60.1 60.2z" />
                             </svg>
-                        </i>Quebec rougemont rue de la fayette</div>
+                        </i>{{ resto.address.street_address }}</div>
                     <div class="s-divider"></div>
                     <div class="p-2">11pm to 10 pm</div>
                     <div class="s-divider"></div>
@@ -108,12 +83,17 @@
             </div>
             <div class="col-auto">
                 <div class="row justify-content-end">
-                    <div id="rating" class="font-weight-bold col-md-auto">
-                        4.2
+                    <div class="col">
+                        <div id="rating" class="font-weight-bold col-md-auto">
+                            4.2
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-end">
-                    <p id="rating-numbers">110 ratings</p>
+                    <div class="col">
+                        <p id="rating-numbers">110 ratings</p>
+                    </div>
+                    
                 </div>
 
             </div>

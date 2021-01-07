@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,  SubmitField , TextAreaField , PasswordField , SelectField
 from wtforms.validators import DataRequired, Length, EqualTo ,Email, ValidationError
-from food_app.models import User
-from food_app import db
+from food_app.models import User , Restaurant
+from food_app import db , current_resto , app
 from food_app.utils import CITY,COUNTRY
 
 class SearchForm(FlaskForm):
@@ -35,7 +35,39 @@ class RestaurantCreationForm(FlaskForm):
                            validators=[DataRequired(), Length(min=2, max=20)])
     phone_number = StringField("Phone number" , validators=[DataRequired() , Length(min=8 , max=10)])
     
+    def validate_name(self, name):
+        resto = Restaurant.query.filter_by(name=name.data).first()
+        if resto:
+            raise ValidationError('That name is taken. Please choose a different one.')
+    #submit = SubmitField('SAVE')
+
+
+class RestaurantUpdateForm(FlaskForm):
+
+    name=StringField("Name" , validators=[DataRequired(), Length(min=4 , max=35)])
     
+    description = TextAreaField('Description',
+                           validators=[DataRequired(), Length(min=2, max=200)])
+    street_address = StringField('Your address',
+                           validators=[DataRequired(), Length(min=2, max=50)])
+    city = SelectField('City',
+                           choices=CITY)
+    """state = StringField('State',
+                           validators=[DataRequired(), Length(min=2, max=20)])"""
+    email = StringField('Email',
+                        validators=[DataRequired() , Email()])
+    average_price = StringField('Average Price',
+                        validators=[DataRequired()])
+    specialities = StringField('Specialities',
+                           validators=[DataRequired(), Length(min=2, max=20)])
+    phone_number = StringField("Phone number" , validators=[DataRequired() , Length(min=8 , max=10)])
+    
+    def validate_name(self, name):
+        if current_resto.name !=name:
+            app.logger.info(current_resto.name)
+            resto = Restaurant.query.filter_by(name=name.data).first()
+            if resto:
+                raise ValidationError('That name is taken. Please choose a different one.')
     #submit = SubmitField('SAVE')
 
 class UserRegistrationForm(FlaskForm):

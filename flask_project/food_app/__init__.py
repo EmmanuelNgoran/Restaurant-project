@@ -14,6 +14,8 @@ search = Search()
 db = SQLAlchemy(app)
 
 login_manager=LoginManager(app)
+
+current_resto = 0
 #admin = Admin(app, 'Example: Auth', index_view=MyAdminIndexView(), base_template='my_master.html')
 search.init_app(app)
 
