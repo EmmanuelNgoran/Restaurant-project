@@ -12,7 +12,13 @@
 {{ super() }}
 
 <div class="container ">
-
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-lg-8">
+      <h1> African Restaurant in your area </h1>
+    </div>
+  </div>
   <div class="row" >
     <div class="col">
       <button type="button" class="btn btn-info btn-mobile">Filter</button>
@@ -20,8 +26,6 @@
     
 
     <div class="col-lg-3" id="filter">
-
-      <hr style="margin-top: 1rem; margin-bottom: 0rem;" id="h_row">
 
       <div class="row" id="filter_by">
         <h1 style="font-size: 128%; margin-left: 15px;"> Filter by: </h1>
@@ -98,7 +102,6 @@
 
     <div class="col-lg-8 col-md-12 col-sm-12">
 
-      <h1> African Restaurant in your area </h1>
       {% for resto in restaurants %}
       <div class="card flex-row flex-wrap mb-3">
         <div class="card-header border-0">

@@ -7,16 +7,13 @@
     --normal-text-color:#212529;
   }
   
-  body, html {
-      height: 100%;
-      font-family: "Roboto";
-  
-    }
-  /*********main style**********/
-  body {
-    background-color:var(--main-bg-color);
-    color:var(--normal-text-color);
+body, html {
+  height: 100%;
+  font-family: "Roboto";
+  background-color:var(--main-bg-color);
+  color:var(--normal-text-color);
+
   }
-  .text-normal{
+.text-normal{
     color:var(--normal-text-color);
   }

@@ -1,7 +1,7 @@
 from functools import wraps
-from food_app import app , db , current_resto
+from food_app import app , db
 from food_app.models import *
-from flask import (render_template , redirect , url_for , flash , request, jsonify)
+from flask import (render_template , redirect , url_for , flash , request, jsonify , g)
 from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm , RestaurantUpdateForm
 from flask_login import current_user , login_user
 from food_app.utils import login_required
@@ -40,10 +40,14 @@ def create_restaurant():
 def restaurant_view(resto_id):
     id=escape(resto_id)
     resto=Restaurant.query.filter_by(id=id).first()
-    current_resto=resto
+    g.resto=resto
     form = RestaurantUpdateForm()
     if form.validate_on_submit():
-        pass
+        resto.name=form.name.data
+        resto.description=form.description.data
+        resto.address.street_address=form.street_address.data
+        db.session.commit()
+        return redirect(url_for('restaurant_view',resto_id=resto_id))
     if request.method == 'GET':
         # to be changed -Add a method to encapsulate the 
         #following lines
@@ -54,7 +58,7 @@ def restaurant_view(resto_id):
         form.average_price.data=resto.average_price
 
 
-    return render_template('restaurant.html', title='Home' , form=form , resto=resto)
+    return render_template('update_restaurant.html', title='Home' , form=form , resto=resto)
 
 @app.route('/result')
 def result():

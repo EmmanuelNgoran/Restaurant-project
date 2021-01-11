@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Length, EqualTo ,Email, ValidationE
 from food_app.models import User , Restaurant
 from food_app import db , current_resto , app
 from food_app.utils import CITY,COUNTRY
+from flask import g
 
 class SearchForm(FlaskForm):
     cuisine_string = StringField('cuisine',
@@ -63,8 +64,7 @@ class RestaurantUpdateForm(FlaskForm):
     phone_number = StringField("Phone number" , validators=[DataRequired() , Length(min=8 , max=10)])
     
     def validate_name(self, name):
-        if current_resto.name !=name:
-            app.logger.info(current_resto.name)
+        if g.resto.name !=name:
             resto = Restaurant.query.filter_by(name=name.data).first()
             if resto:
                 raise ValidationError('That name is taken. Please choose a different one.')
