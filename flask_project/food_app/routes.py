@@ -4,7 +4,7 @@ from food_app.models import *
 from flask import (render_template , redirect , url_for , flash , request, jsonify , g)
 from .forms import SearchForm , RestaurantCreationForm , UserRegistrationForm , UserLoginForm , RestaurantUpdateForm
 from flask_login import current_user , login_user
-from food_app.utils import login_required
+from food_app.utils import login_required , save_image , allowed_file
 from markupsafe import escape
 
 import random
@@ -51,6 +51,7 @@ def restaurant_view(resto_id):
     if request.method == 'GET':
         # to be changed -Add a method to encapsulate the 
         #following lines
+        id=resto.id
         form.name.data=resto.name
         form.description.data=resto.description
         form.street_address.data=resto.address.street_address
@@ -58,7 +59,7 @@ def restaurant_view(resto_id):
         form.average_price.data=resto.average_price
 
 
-    return render_template('update_restaurant.html', title='Home' , form=form , resto=resto)
+    return render_template('update_restaurant.html', title='Home' ,id=id, form=form , resto=resto)
 
 @app.route('/result')
 def result():
@@ -115,12 +116,52 @@ def search_end_point():
 
     if len(content) > 0:
         res = w_search(content)
-        response=[ ob.name for ob in res]    
+        response=[ {'name':ob.name,'id':ob.id}  for ob in res]    
 
     return jsonify(response)
 
+@app.route('/api/add/cover', methods=['POST'])
+def add_cover():
+    if request.method == 'POST':
+        app.logger.info(f"post method")
+        # check if the post request has the file part
+        print(request.files)
+        if request.files:
+            if 'files[]' in request.files.keys(): 
+                for file_elem in request.files.getlist('files[]'):
+                    print(f"-- {file_elem}")
+                    if allowed_file(file_elem.filename):
+                        image_name= save_image(file_elem,'Restaurant')
+                        new_image = ImageItem(photo_path=image_name)
+                        db.session.add(new_image)
+                        db.session.commit()
+                    app.logger.info(f"The file name is{file_elem.filename}")
+            return "accepted"
+
+        return "error"
 
     
+@app.route('/api/add/menu', methods=['POST'])
+def add_menu():
+    if request.form.get('menu_name') and request.form.get('id'):
+        if request.files['files']:
+            
+            pass
+            
+        
+
+@app.route('/api/add/dish', methods=['POST'])
+def add_dish():
+    data_menu=request.form
+    print(request)
+    if data_menu.get('dish_name') and data_menu.get('dish_option'):
+        app.logger.info(f"The dish is {data_menu.get('dish_name')} and its option are {data_menu.get('dish_option')}")
+        if data_menu.get("dish_desc"):
+            app.logger.info(f"The dish description is {data_menu.get('dish_desc')}")
+        return "success"
+    else:
+        return "error"
+
 @app.route('/about')
 def about():
     return render_template('about.html')

@@ -30,8 +30,15 @@ def init_login():
 # Create customized model view class
 class MyModelView(ModelView):
 
+    create_modal = True
+    edit_modal = True
+    
     def is_accessible(self):
         return current_user.is_authenticated
+
+class RestaurantModelView(MyModelView):
+
+    column_searchable_list = ['name']
 
 
 class ImageView(MyModelView):
@@ -105,7 +112,7 @@ admin = Admin(app, 'Restaurant Admin', index_view=MyAdminIndexView(), base_templ
 
 # Add view
 admin.add_view(MyModelView(User, db.session))
-admin.add_view(MyModelView(Restaurant , db.session))
+admin.add_view(RestaurantModelView(Restaurant , db.session))
 admin.add_view(MyModelView(Dish , db.session))
 admin.add_view(MyModelView(Address , db.session))
 admin.add_view(MyModelView(Menu , db.session))

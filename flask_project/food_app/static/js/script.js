@@ -71,9 +71,11 @@ function outputHtml(contents){
   let html="";
   if(contents.length)
   {
-     html = contents.map(ele=>`<div class='card card-body mb-2'>
-                  <h4>${ele}</h4>
-                  </div>`).join('');
+     html = contents.map(ele=>`<a  href='/resto/update/${ele['id']}'>
+     <div class='card card-body mb-2'>
+                  <h4>${ele['name']}</h4>
+                  </div>
+     </a>`).join('');
     return html;
         
   }

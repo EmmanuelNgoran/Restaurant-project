@@ -4,7 +4,7 @@
 
 {% block stylesheet %}
 {{ super() }}
-<link rel="stylesheet" type="text/css" href="..\static\styles\result.css">
+<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='styles/result.css') }}>
 {% endblock stylesheet %}
 
 {% block content %}
@@ -103,27 +103,34 @@
     <div class="col-lg-8 col-md-12 col-sm-12">
 
       {% for resto in restaurants %}
-      <div class="card flex-row flex-wrap mb-3">
-        <div class="card-header border-0">
-          <img class="card-img-top" src="../static/images/rezfood.jpg" alt="Card image cap">
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-8">
-              <h5 class="card-title">{{ resto.name }}</h5>
-              <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
-              <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
-              <address>{{ resto.address.street_address }}</address>
+        <a href={{ url_for('restaurant_view',resto_id=resto.id) }}>
+          <div class="card flex-row flex-wrap mb-3 stretched-link">
+            <div class="card-header border-0">
+              {% if resto.photos  %}
+              <img class="card-img-top" src={{ url_for('static', filename='images/'+resto.photos[0].photo_path) }} alt="Card image cap" width=256>
+              {% else %}
+              <img class="card-img-top" src="../static/images/rezfood.jpg" alt="Card image cap">
+              {% endif %}
             </div>
-            <div class="col-4">
-              <div class="square">
-                <div class="rating_content">4.2</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">{{ resto.name }}</h5>
+                  <h2 class="card-text hour"> <time>11 am</time> to <time>10 pm</time></h2>
+                  <h2 class="card-text country">Nigerian , Ivoirian , Guinean</h2>
+                  <address>{{ resto.address.street_address }}</address>
+                </div>
+                <div class="col-4">
+                  <div class="square">
+                    <div class="rating_content">4.2</div>
+                  </div>
+                  <div class="rating-score">110 ratings</div>
+                </div>
               </div>
-              <div class="rating-score">110 ratings</div>
             </div>
           </div>
-        </div>
-      </div>
+        </a>
+      
       {% endfor %}
 
       <div class="card basic">

@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='styles/resto_style.css') }}>
 {% endblock stylesheet %}
 {% block content %}
-<div class="container mt-4">
+<div class="container mt-4" data-id="{{ id }}">
     <div id="header-pr" class="bg-light p-3">
         <div class="row mb-6">
             <div class="col-lg-7" style="position: relative;">
@@ -13,7 +13,7 @@
                 </div>
                 <form class="submit_photo" id="photoSubm">
                     <div class="add-photo btn" id="photo_up_btn">
-                        <input id="fileInput" type="file" style="display: none;" accept="image/png, image/jpeg"/>
+                        <input id="fileInput" type="file" style="display: none;" accept="image/png, image/jpeg , image/jpg" multiple/ >
                         <i><svg id="camera-logo" height=1rem enable-background="new 0 0 488.455 488.455"
                                 viewBox="0 0 488.455 488.455" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -25,28 +25,89 @@
 
 
                 </form>
-                <div class="popup" id='popup'>
-                    <div class="container">
-                        <div class="col align-self-center">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" >
+                            <div class="col align-self-center">
                             <div class="row">
                                 <h2 class="pt-2">
                                     Image Upload
                                 </h2>
                             </div>
+                            <div  class="row" id="photoModalBody">
+
+                            </div>
+                            <!-- # TODO: Add dynamic element creation-->
+                            <!--
                             <div class="row">
                                 <div class="image_preview" id="imagePreview">
                                     <img  class="img_preview" src(unknown) alt="Image Preview" style="max-width: 200px;">
                                     <span class="image_preview_text d-flex">Image preview</span>
                                 </div>
                             </div>
+                            -->
 
                             <div class="row">
                                 <button type="button" class="btn btn-dark">Validate</button>
                             </div>
 
                         </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" id="btnUpload">Upload Image</button>
+                        </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                  <!--Modal dish-->
+                  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="menuForm">
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">Dish name</label>
+                                  <input type="text" class="form-control"  name="dish_name" id="exampleFormControlInput1" placeholder="Enter the dish name" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Food tag</label>
+                                  <select class="form-control" id="exampleFormControlSelect1" name="dish_option">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlTextarea1">Description</label>
+                                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="dish_desc"></textarea>
+                                </div>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" id="btnUploadMenu">Save change</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal menu-->
+                  
             </div>
             <div class="col-lg-5">
                 <div class="row mb-2">
@@ -104,12 +165,19 @@
     <div id="accordion mt-2" style="width: 70%;">
         <div class="card">
             <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Collapsible Group Item #1
-                    </button>
-                </h5>
+                <div class="row justify-content-between">
+                    <div class="col">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="col-auto">
+                        <button id="dishAdd" type="button" class="btn btn-dark">Add Menu</button>
+                    </div>
+                </div>
             </div>
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -194,12 +262,18 @@
         </div>
         <div class="card">
             <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
-                    </button>
-                </h5>
+                <div class="row justify-content-between">
+                    <div class="col">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Collapsible Group Item #3
+                            </button>
+                        </h5>
+                    </div>
+    
+                </div>
+                
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
                 <div class="row">
@@ -246,42 +320,10 @@
         </div>
     </div>
 </div>
-<script>
-
-const myForm = document.getElementById("photoSubm");
-const photo_btn = document.getElementById('photo_up_btn');
-const popup = document.getElementById('popup');
-const inpFile_photo=document.getElementById("fileInput");
-const prev_container=document.getElementById("imagePreview");
-const image_prev=prev_container.querySelector(".img_preview");
-
-
-
-photo_btn.addEventListener('click', () => {
-    document.getElementById('fileInput').click();
-})
-
-inpFile_photo.addEventListener("change",function(){
-    const file = this.files[0];
-    if (file){
-        const reader= new FileReader();
-
-        reader.addEventListener("load",function(){
-            image_prev.setAttribute("src",this.result);
-            popup.style.display = 'block';
-        })
-
-        reader.readAsDataURL(file)
-    }
-    
-
-})
-
-myForm.addEventListener('submit', e => {
-    e.preventDefault;
-})
-
-</script>
 
 
 {% endblock content %}
+
+{% block  script %}
+<script src={{ url_for('static', filename='js/update_rest.js') }}></script>
+{% endblock script %}
